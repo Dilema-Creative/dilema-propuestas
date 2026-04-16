@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>War Room Latam — Estrategia Digital · Dilema Creative</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: #f7f7f5; color: #1a1a1a; }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 56px; border-bottom: 1px solid #e5e5e3; position: sticky; top: 0; background: #fff; z-index: 100; }
+  .nav-brand { font-size: 12px; letter-spacing: .12em; color: #999; text-transform: uppercase; font-weight: 600; }
+  .nav-client { font-size: 13px; color: #0f9b72; font-weight: 700; }
+
+  section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 56px; border-bottom: 1px solid #e5e5e3; background: #f7f7f5; }
+  section:nth-child(even) { background: #fff; }
+
+  /* HERO */
+  #hero { background: #0f1f18; }
+  .hero-tag { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #0f9b72; margin-bottom: 20px; font-weight: 700; }
+  .hero-title { font-size: clamp(52px, 7.5vw, 96px); font-weight: 900; line-height: .95; letter-spacing: -.03em; color: #fff; margin-bottom: 16px; }
+  .hero-title em { color: #0f9b72; font-style: normal; }
+  .hero-sub { font-size: 18px; color: #8a9e96; margin-bottom: 44px; max-width: 520px; line-height: 1.65; }
+  .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pill { padding: 7px 16px; border-radius: 100px; border: 1px solid #2a3d34; font-size: 13px; color: #8a9e96; }
+  .pill.hi { border-color: #0f9b72; color: #0f9b72; font-weight: 600; }
+  .hero-scroll { margin-top: 60px; font-size: 11px; color: #3a5245; letter-spacing: .12em; text-transform: uppercase; }
+
+  /* SECTION TITLES */
+  .sec-num { font-size: 11px; letter-spacing: .15em; color: #0f9b72; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+  .sec-title { font-size: clamp(30px, 4vw, 48px); font-weight: 900; color: #111; line-height: 1.05; margin-bottom: 14px; letter-spacing: -.02em; }
+  .sec-title em { color: #0f9b72; font-style: normal; }
+  .sec-body { font-size: 16px; color: #555; line-height: 1.75; max-width: 620px; margin-bottom: 48px; }
+
+  /* GRIDS */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media(max-width:860px){ .g2,.g3,.g4{ grid-template-columns:1fr; } }
+
+  /* CARDS */
+  .card { background: #fff; border: 1px solid #e5e5e3; border-radius: 14px; padding: 26px; }
+  .card.green { background: #f0faf5; border-color: #b3e6d0; }
+  .card-tag { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 100px; background: #e6f7f0; color: #0a7a59; font-weight: 700; margin-bottom: 12px; letter-spacing: .04em; }
+  .card-num { font-size: 40px; font-weight: 900; color: #0f9b72; line-height: 1; margin-bottom: 4px; }
+  .card-label { font-size: 13px; color: #999; margin-bottom: 12px; }
+  .card-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 8px; }
+  .card-text { font-size: 13px; color: #666; line-height: 1.6; }
+
+  /* PROBLEMS */
+  .prob { display: flex; gap: 18px; align-items: flex-start; padding: 22px; background: #fff; border: 1px solid #e5e5e3; border-radius: 12px; }
+  .prob + .prob { margin-top: 10px; }
+  .prob-ico { width: 38px; height: 38px; border-radius: 10px; background: #fdecea; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+  .prob-ico.ok { background: #e6f7f0; }
+  .prob-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .prob-text { font-size: 13px; color: #666; line-height: 1.55; }
+
+  /* FUNNEL */
+  .fn-step { display: flex; align-items: center; gap: 18px; padding: 18px 24px; border-radius: 10px; }
+  .fn-step:nth-child(1){ background:#0f9b72; margin:0; }
+  .fn-step:nth-child(2){ background:#0d8b64; margin:0 20px; }
+  .fn-step:nth-child(3){ background:#0b7a58; margin:0 40px; }
+  .fn-step:nth-child(4){ background:#096a4b; margin:0 60px; }
+  .fn-badge { font-size: 11px; font-weight: 800; color: #ffffff99; min-width: 36px; }
+  .fn-t { font-size: 14px; font-weight: 700; color: #fff; }
+  .fn-s { font-size: 12px; color: #ffffffaa; margin-top: 2px; }
+  .fn-gap { height: 3px; }
+
+  /* KW TABLE */
+  .kw { background: #fff; border: 1px solid #e5e5e3; border-radius: 12px; overflow: hidden; }
+  .kw-head { padding: 12px 18px; background: #f0faf5; border-bottom: 1px solid #b3e6d0; font-size: 11px; font-weight: 700; color: #0a7a59; text-transform: uppercase; letter-spacing: .08em; display: flex; justify-content: space-between; }
+  .kw-row { padding: 10px 18px; border-bottom: 1px solid #f0f0ee; font-size: 13px; color: #333; display: flex; justify-content: space-between; align-items: center; font-family: 'Monaco','Courier New',monospace; }
+  .kw-row:last-child { border-bottom: none; }
+  .badge { font-size: 10px; padding: 2px 9px; border-radius: 100px; font-family: inherit; font-weight: 700; }
+  .b-green { background: #e6f7f0; color: #0a7a59; }
+  .b-red { background: #fdecea; color: #c0392b; }
+  .b-amber { background: #fef6e6; color: #b7830a; }
+
+  /* METRICS */
+  .mt { background: #fff; border: 1px solid #e5e5e3; border-radius: 12px; overflow: hidden; }
+  .mt-head { display: grid; grid-template-columns: 190px 1fr 1fr; background: #0f9b72; }
+  .mt-hcell { padding: 13px 18px; font-size: 11px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .07em; }
+  .mt-row { display: grid; grid-template-columns: 190px 1fr 1fr; border-top: 1px solid #f0f0ee; }
+  .mt-row:nth-child(even) { background: #f9faf8; }
+  .mt-cell { padding: 13px 18px; font-size: 13px; color: #333; }
+  .mt-cell:first-child { font-weight: 700; color: #111; border-right: 1px solid #f0f0ee; }
+  .mt-cell.mid { color: #666; border-right: 1px solid #f0f0ee; }
+
+  /* TIMELINE */
+  .tl { position: relative; padding-left: 28px; }
+  .tl::before { content:''; position:absolute; left:8px; top:6px; bottom:0; width:2px; background:#e0e0de; }
+  .tl-item { position:relative; padding:0 0 28px 22px; }
+  .tl-item::before { content:''; position:absolute; left:-4px; top:5px; width:10px; height:10px; border-radius:50%; background:#0f9b72; border:2px solid #f7f7f5; }
+  .tl-item:last-child { padding-bottom:0; }
+  .tl-num { font-size:11px; color:#0f9b72; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:3px; }
+  .tl-title { font-size:15px; font-weight:700; color:#111; margin-bottom:4px; }
+  .tl-text { font-size:13px; color:#666; line-height:1.55; }
+
+  /* CHECK LIST */
+  .chk-item { display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid #efefed; font-size:14px; color:#333; }
+  .chk-item:last-child { border-bottom:none; }
+  .chk-item::before { content:'✓'; color:#0f9b72; font-weight:700; flex-shrink:0; margin-top:1px; }
+
+  /* CLOSING */
+  #cierre { background: #0f1f18; }
+  .close-title { font-size: clamp(32px, 5vw, 60px); font-weight: 900; color: #fff; line-height: 1.05; margin-bottom: 28px; letter-spacing: -.02em; }
+  .close-title em { color: #0f9b72; font-style: normal; }
+  .close-list { list-style: none; margin-bottom: 44px; }
+  .close-list li { padding: 12px 0; border-bottom: 1px solid #1f3329; font-size: 15px; color: #8a9e96; display: flex; gap: 12px; }
+  .close-list li::before { content:'→'; color:#0f9b72; flex-shrink:0; }
+  .contact-row { display:flex; gap:36px; flex-wrap:wrap; }
+  .contact-item strong { display:block; font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:#3a5245; margin-bottom:4px; }
+  .contact-item span { font-size:14px; color:#8a9e96; }
+
+  .div { width:44px; height:3px; background:#0f9b72; border-radius:2px; margin:32px 0; }
+
+  /* AUDIENCE PROFILES */
+  .profile { background:#fff; border:1px solid #e5e5e3; border-radius:14px; overflow:hidden; }
+  .profile-head { padding:20px 24px 16px; border-bottom:1px solid #f0f0ee; }
+  .profile-body { padding:20px 24px; }
+  .profile-kw { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .kw-chip { font-size:12px; padding:4px 10px; background:#f5f5f3; border-radius:6px; color:#444; font-family:monospace; }
+  .profile-footer { padding:14px 24px; background:#f9faf8; border-top:1px solid #f0f0ee; font-size:12px; color:#0a7a59; font-weight:600; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Dilema Creative</span>
+  <span class="nav-client">War Room Latam · Estrategia Digital 2025</span>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="background:#0f1f18;">
+  <div class="hero-tag">Google Ads + Meta Ads · Sistema integrado</div>
+  <div class="hero-title">WAR ROOM<br><em>LEADS QUE</em><br>CONVIERTEN.</div>
+  <div class="hero-sub">Un sistema integrado para generar prospectos con intención real de contratar formación aplicada B2B.</div>
+  <div class="hero-pills">
+    <span class="pill hi">Google Ads</span>
+    <span class="pill hi">Meta Ads</span>
+    <span class="pill">Sales · Leadership · Teams</span>
+    <span class="pill">3 verticales, 1 sistema</span>
+  </div>
+  <div class="hero-scroll">↓ Scroll para ver la propuesta</div>
+</section>
+
+<!-- 01 NEGOCIO -->
+<section>
+  <div class="sec-num">01 · El negocio</div>
+  <div class="sec-title">War Room no es<br><em>un curso más.</em></div>
+  <div class="sec-body">No compite con universidades ni cursos genéricos. Entra a organizaciones reales, trabaja con equipos reales y genera impacto medible en resultados de negocio. Eso cambia toda la estrategia de comunicación.</div>
+
+  <div class="g3" style="margin-bottom:32px;">
+    <div class="card green">
+      <div class="card-tag">Sales</div>
+      <div class="card-title">Fuerza comercial B2B</div>
+      <div class="card-text">Venta consultiva, Go to Market, Gerencia Comercial, Sales Skills Assessment. El vertical con mayor demanda activa.</div>
+    </div>
+    <div class="card green">
+      <div class="card-tag">Leadership</div>
+      <div class="card-title">Liderazgo consciente</div>
+      <div class="card-text">Comunicación ejecutiva, Rising Stars, Multigeneracional. Para líderes que quieren llevar equipos a otro nivel.</div>
+    </div>
+    <div class="card green">
+      <div class="card-tag">Teams</div>
+      <div class="card-title">Alto desempeño</div>
+      <div class="card-text">Transformación cultural, interacciones efectivas. Programas para toda la organización.</div>
+    </div>
+  </div>
+
+  <div class="g4">
+    <div class="card">
+      <div class="card-num">10+</div>
+      <div class="card-label">Casos documentados</div>
+      <div class="card-text">Activos de validación reales listos para usar en campañas y landings.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">3</div>
+      <div class="card-label">Verticales con demanda</div>
+      <div class="card-text">Cada uno tiene su propio perfil de búsqueda y tipo de lead.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">B2B</div>
+      <div class="card-label">Perfil de cliente</div>
+      <div class="card-text">Empresas y profesionales que miden resultados, no títulos.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">≠</div>
+      <div class="card-label">No es educación tradicional</div>
+      <div class="card-text">El diferencial comunicacional más fuerte disponible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PROBLEMA -->
+<section>
+  <div class="sec-num">02 · El problema</div>
+  <div class="sec-title">El producto es sólido.<br><em>El problema es digital.</em></div>
+  <div class="sec-body">War Room tiene los casos de éxito, la metodología y clientes reales. Lo que falta es que ese activo llegue a quien tiene que llegar.</div>
+
+  <div style="max-width:680px;">
+    <div class="prob">
+      <div class="prob-ico">👻</div>
+      <div>
+        <div class="prob-title">Invisibilidad frente a demanda activa</div>
+        <div class="prob-text">Hay personas buscando "consultoría ventas B2B" ahora mismo. Sin Search Ads, War Room no existe para ellos.</div>
+      </div>
+    </div>
+    <div class="prob">
+      <div class="prob-ico">🎯</div>
+      <div>
+        <div class="prob-title">Leads sin calificar</div>
+        <div class="prob-text">Sin filtros claros, el tráfico entra mezclado con gente que busca cursos gratis, empleos o títulos. Se desperdicia presupuesto.</div>
+      </div>
+    </div>
+    <div class="prob">
+      <div class="prob-ico">⏳</div>
+      <div>
+        <div class="prob-title">Ciclo largo sin prueba social digital</div>
+        <div class="prob-text">Los casos de éxito existen pero no están trabajando en digital. Sin ellos, el prospecto tarda más en confiar.</div>
+      </div>
+    </div>
+    <div class="prob" style="border-color:#b3e6d0; background:#f0faf5;">
+      <div class="prob-ico ok">✓</div>
+      <div>
+        <div class="prob-title" style="color:#0a7a59;">Esto se resuelve con un sistema integrado</div>
+        <div class="prob-text">Google captura intención activa. Meta construye autoridad. Los casos de éxito convierten en ambos canales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 AUDIENCIA -->
+<section>
+  <div class="sec-num">03 · A quién le hablamos</div>
+  <div class="sec-title">Dos perfiles,<br><em>dos conversaciones.</em></div>
+  <div class="sec-body">No es un solo mensaje. Cada perfil tiene una intención distinta y necesita canal y creatividad diferente.</div>
+
+  <div class="g2" style="max-width:800px;">
+    <div class="profile">
+      <div class="profile-head">
+        <div class="card-tag">Perfil A · Mayor ticket</div>
+        <div class="card-title">La empresa que necesita mover el equipo</div>
+        <div class="card-text" style="margin-top:8px;">Gerente Comercial, Director de Ventas, RRHH/L&D, CEO de empresa mediana que quiere resultados distintos.</div>
+      </div>
+      <div class="profile-body">
+        <div style="font-size:12px; color:#999; margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:.06em;">Busca en Google</div>
+        <div class="profile-kw">
+          <span class="kw-chip">"consultoría ventas B2B"</span>
+          <span class="kw-chip">"programa liderazgo equipos"</span>
+          <span class="kw-chip">"desarrollo comercial empresas"</span>
+        </div>
+      </div>
+      <div class="profile-footer">→ Contratos más grandes · Decisión corporativa · Ciclo más largo</div>
+    </div>
+    <div class="profile">
+      <div class="profile-head">
+        <div class="card-tag" style="background:#f5f0ff; color:#5b3fc4;">Perfil B · Puente a empresa</div>
+        <div class="card-title">El profesional que quiere subir de nivel</div>
+        <div class="card-text" style="margin-top:8px;">Vendedor o gerente con 3–10 años de experiencia. Rising Star al que ya le dieron más responsabilidad pero sin herramientas.</div>
+      </div>
+      <div class="profile-body">
+        <div style="font-size:12px; color:#999; margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:.06em;">Busca en Google</div>
+        <div class="profile-kw">
+          <span class="kw-chip">"cómo mejorar ventas"</span>
+          <span class="kw-chip">"liderazgo consciente"</span>
+          <span class="kw-chip">"habilidades directivas"</span>
+        </div>
+      </div>
+      <div class="profile-footer" style="color:#5b3fc4;">→ Ciclo más corto · Puede traer a su empresa después</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 GOOGLE -->
+<section>
+  <div class="sec-num">04 · Google Ads</div>
+  <div class="sec-title">Capturar a quien<br><em>ya está buscando.</em></div>
+  <div class="sec-body">Google no crea la demanda, la captura. La clave es aparecer primero y calificar con el mensaje antes del clic — no después.</div>
+
+  <div class="g2" style="max-width:900px; gap:28px; margin-bottom:32px;">
+    <div>
+      <div style="font-size:12px; font-weight:700; color:#111; margin-bottom:12px; text-transform:uppercase; letter-spacing:.07em;">Campañas por vertical</div>
+      <div class="kw">
+        <div class="kw-head"><span>Campaña</span><span>Vertical</span></div>
+        <div class="kw-row">Venta consultiva B2B <span class="badge b-green">Sales</span></div>
+        <div class="kw-row">Gerencia Comercial <span class="badge b-green">Sales</span></div>
+        <div class="kw-row">Go to Market <span class="badge b-green">Sales</span></div>
+        <div class="kw-row">Liderazgo empresarial <span class="badge b-amber">Leadership</span></div>
+        <div class="kw-row">Equipos alto desempeño <span class="badge b-amber">Teams</span></div>
+        <div class="kw-row" style="color:#999;">Brand · War Room <span style="font-size:11px; color:#bbb;">Protección</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px; font-weight:700; color:#111; margin-bottom:12px; text-transform:uppercase; letter-spacing:.07em;">Keywords negativas obligatorias</div>
+      <div class="kw">
+        <div class="kw-head"><span>Filtro</span><span>Acción</span></div>
+        <div class="kw-row">gratis / gratuito <span class="badge b-red">Excluir</span></div>
+        <div class="kw-row">universidad / facultad <span class="badge b-red">Excluir</span></div>
+        <div class="kw-row">carrera / título oficial <span class="badge b-red">Excluir</span></div>
+        <div class="kw-row">empleo / trabajo / vacantes <span class="badge b-red">Excluir</span></div>
+        <div class="kw-row">online gratis / YouTube / PDF <span class="badge b-red">Excluir</span></div>
+      </div>
+      <div style="font-size:13px; color:#888; margin-top:12px; line-height:1.55;">Sin estas negativas el presupuesto se va a tráfico que nunca va a contratar.</div>
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="card-title">Landing por vertical</div>
+      <div class="card-text">Cada campaña va a su propia página con el caso de éxito del vertical. Nada genérico.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Puja por conversiones</div>
+      <div class="card-text">Formulario + WhatsApp como objetivos. Google aprende a traer quien convierte, no quien solo hace clic.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Remarketing Search + Display</div>
+      <div class="card-text">Reimpactar visitantes de páginas de servicio que no convirtieron, con mensajes de validación.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 META -->
+<section>
+  <div class="sec-num">05 · Meta Ads</div>
+  <div class="sec-title">Construir autoridad<br><em>antes de que busquen.</em></div>
+  <div class="sec-body">Meta no captura demanda activa, la genera. Cuando alguien llegue a Google con intención, War Room ya tiene que resultarle familiar y confiable.</div>
+
+  <div style="max-width:580px; display:flex; flex-direction:column; gap:3px; margin-bottom:40px;">
+    <div class="fn-step"><div class="fn-badge">ToF</div><div><div class="fn-t">Awareness · Construcción de audiencia</div><div class="fn-s">Líderes, gerentes y profesionales B2B. Casos de éxito cortos, datos de impacto.</div></div></div>
+    <div class="fn-gap"></div>
+    <div class="fn-step"><div class="fn-badge">MoF</div><div><div class="fn-t">Consideración · Retargeting calificado</div><div class="fn-s">Visitantes del sitio. Mensaje diferencial vs. educación tradicional.</div></div></div>
+    <div class="fn-gap"></div>
+    <div class="fn-step"><div class="fn-badge">BoF</div><div><div class="fn-t">Conversión · Audiencias calientes</div><div class="fn-s">Visitaron página de servicio sin convertir. CTA directo a WhatsApp o formulario.</div></div></div>
+    <div class="fn-gap"></div>
+    <div class="fn-step"><div class="fn-badge">LAL</div><div><div class="fn-t">Lookalike · Escalar lo que funciona</div><div class="fn-s">Basada en la base de clientes actuales de War Room.</div></div></div>
+  </div>
+
+  <div style="font-size:12px; font-weight:700; color:#111; margin-bottom:14px; text-transform:uppercase; letter-spacing:.07em;">Contenido orgánico que alimenta la pauta</div>
+  <div class="g4">
+    <div class="card green"><div style="font-size:13px; font-weight:700; color:#0a7a59; margin-bottom:6px;">Casos de éxito</div><div class="card-text">Antes/después de un equipo o profesional real. El activo más poderoso.</div></div>
+    <div class="card green"><div style="font-size:13px; font-weight:700; color:#0a7a59; margin-bottom:6px;">Metodología aplicada</div><div class="card-text">Mostrar cómo se trabaja, no solo qué se ofrece.</div></div>
+    <div class="card green"><div style="font-size:13px; font-weight:700; color:#0a7a59; margin-bottom:6px;">Diferenciación activa</div><div class="card-text">Por qué War Room no es "un curso más". Comparación explícita.</div></div>
+    <div class="card green"><div style="font-size:13px; font-weight:700; color:#0a7a59; margin-bottom:6px;">Contenido de autoridad</div><div class="card-text">Luis y el equipo mostrando expertise en ventas, liderazgo y equipos.</div></div>
+  </div>
+</section>
+
+<!-- 06 SISTEMA -->
+<section>
+  <div class="sec-num">06 · El sistema integrado</div>
+  <div class="sec-title">Cómo funciona<br><em>como uno solo.</em></div>
+  <div class="sec-body">Meta y Google no son campañas paralelas. Son dos momentos distintos del mismo prospecto en su camino a contratar.</div>
+
+  <div style="display:flex; gap:56px; align-items:flex-start; flex-wrap:wrap;">
+    <div class="tl" style="flex:1; min-width:300px;">
+      <div class="tl-item"><div class="tl-num">Paso 1</div><div class="tl-title">Ve War Room en Meta</div><div class="tl-text">Un caso de éxito o fragmento de programa. Empieza a reconocer la marca y la metodología.</div></div>
+      <div class="tl-item"><div class="tl-num">Paso 2</div><div class="tl-title">Busca activamente en Google</div><div class="tl-text">Días después, busca "consultoría ventas B2B". War Room aparece primero.</div></div>
+      <div class="tl-item"><div class="tl-num">Paso 3</div><div class="tl-title">Entra a la landing del vertical</div><div class="tl-text">Ve el caso de éxito relevante para su industria. CTA directo a WhatsApp.</div></div>
+      <div class="tl-item"><div class="tl-num">Paso 4</div><div class="tl-title">Si no convierte → retargeting Meta</div><div class="tl-text">El ciclo sigue calificándolo con prueba social desde otro ángulo.</div></div>
+      <div class="tl-item"><div class="tl-num">Paso 5</div><div class="tl-title">Primer contacto calificado</div><div class="tl-text">Cuando llega al comercial, ya conoce War Room y ya vio resultados reales. El ciclo de venta se acorta.</div></div>
+    </div>
+    <div style="flex:1; min-width:260px;">
+      <div class="card green">
+        <div style="font-size:12px; font-weight:700; color:#0a7a59; margin-bottom:16px; text-transform:uppercase; letter-spacing:.07em;">Lo que conecta los dos canales</div>
+        <div class="chk-item">Pixel de Meta instalado en el sitio</div>
+        <div class="chk-item">Tags de conversión en Google Ads</div>
+        <div class="chk-item">Audiencias por página visitada</div>
+        <div class="chk-item">Mensajes consistentes entre canales</div>
+        <div class="chk-item">Casos de éxito activos en ambas plataformas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 MÉTRICAS -->
+<section>
+  <div class="sec-num">07 · Métricas</div>
+  <div class="sec-title">Lo que se mide,<br><em>lo que importa.</em></div>
+  <div class="sec-body">No solo números. Cada métrica tiene un sentido de negocio claro para War Room.</div>
+
+  <div class="mt" style="max-width:860px;">
+    <div class="mt-head">
+      <div class="mt-hcell">Métrica</div>
+      <div class="mt-hcell">Qué indica</div>
+      <div class="mt-hcell">Por qué le importa a War Room</div>
+    </div>
+    <div class="mt-row"><div class="mt-cell">CPL</div><div class="mt-cell mid">Eficiencia de inversión</div><div class="mt-cell">Cada peso debe traer un prospecto con intención real</div></div>
+    <div class="mt-row"><div class="mt-cell">Leads calificados</div><div class="mt-cell mid">Intención del usuario</div><div class="mt-cell">Prospectos que encajan con el perfil objetivo</div></div>
+    <div class="mt-row"><div class="mt-cell">Tasa WA + llamada</div><div class="mt-cell mid">Interés fuerte</div><div class="mt-cell">Cuántos leads avanzan al primer contacto comercial</div></div>
+    <div class="mt-row"><div class="mt-cell">CTR Search</div><div class="mt-cell mid">Relevancia del anuncio</div><div class="mt-cell">Si filtra bien, solo hacen clic los que realmente buscan esto</div></div>
+    <div class="mt-row"><div class="mt-cell">Conversión por vertical</div><div class="mt-cell mid">Dónde está la demanda</div><div class="mt-cell">Priorizar inversión en Sales, Leadership o Teams según data</div></div>
+    <div class="mt-row"><div class="mt-cell">Engagement casos</div><div class="mt-cell mid">Validación social activa</div><div class="mt-cell">Cuánto resuena la prueba real vs. contenido genérico</div></div>
+  </div>
+
+  <div class="div"></div>
+  <div style="font-size:14px; color:#555; max-width:540px; line-height:1.7;">Reporte quincenal con análisis real — qué vertical tracciona más, qué mensaje convierte mejor, qué ajustamos para la siguiente quincena.</div>
+</section>
+
+<!-- CIERRE -->
+<section id="cierre">
+  <div class="sec-num" style="color:#0f9b72;">Por qué Dilema Creative</div>
+  <div class="close-title">War Room tiene el diferencial.<br>Falta que <em>digital trabaje</em><br>igual de bien.</div>
+  <ul class="close-list">
+    <li>Trabajamos con empresas B2B donde el lead calificado importa más que el volumen</li>
+    <li>Integramos Google y Meta como un sistema, no como dos pautas paralelas</li>
+    <li>Decimos lo que vemos aunque no nos lo pidan</li>
+    <li>Seguimiento activo con optimización continua — no se arma y se olvida</li>
+  </ul>
+  <div class="contact-row">
+    <div class="contact-item"><strong>Email</strong><span>equipo@dilemacreative.ar</span></div>
+    <div class="contact-item"><strong>Instagram</strong><span>@dilema.creative</span></div>
+    <div class="contact-item"><strong>Teléfono</strong><span>11 7157-3415</span></div>
+  </div>
+</section>
+
+</body>
+</html>
