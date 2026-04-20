@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de Marketing Digital — MCT SRL + Water Kingdom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #0E2A47;
+  --ink-soft:  #1B3A5C;
+  --sage:      #4FA27E;
+  --sage-deep: #2F7D5E;
+  --cream:     #F4EFE6;
+  --paper:     #FAF6EE;
+  --paper-2:   #EFE8D9;
+  --ash:       #6B6257;
+  --line:      #D9CFBC;
+  --star:      #5BB4D6;
+  --black:     #14161A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SLIDE LAYOUT ── */
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--line);
+  page-break-after: always;
+}
+.slide.dark   { background: var(--ink); color: var(--cream); border-bottom-color: rgba(255,255,255,.1); }
+.slide.sage   { background: var(--sage-deep); color: var(--cream); border-bottom-color: rgba(255,255,255,.1); }
+.slide.cream  { background: var(--cream); }
+.slide.paper2 { background: var(--paper-2); }
+
+/* ── MONO LABEL ── */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+.dark .mono { color: var(--cream); }
+
+/* ── SERIF HEADING ── */
+.serif { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+
+/* ── TOP BAR ── */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 72px;
+}
+.brand-mark {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+.brand-mark em { font-style: italic; color: var(--sage); font-weight: 600; }
+.dark .brand-mark, .sage .brand-mark { color: var(--cream); }
+
+/* ── COVER SLIDE ── */
+.cover-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
+}
+.cover-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 28px;
+}
+.cover-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(56px, 8vw, 120px);
+  line-height: .9;
+  letter-spacing: -.035em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+.cover-title em { font-style: italic; color: var(--sage); }
+.cover-sub {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--ash);
+  max-width: 640px;
+  line-height: 1.4;
+  margin-bottom: 64px;
+}
+.cover-foot {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.cover-foot .cell .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ash); margin-bottom: 4px; }
+.cover-foot .cell .v { font-family: 'Fraunces', serif; font-size: 18px; color: var(--ink); }
+
+/* ── SECTION HEADER ── */
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 56px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid currentColor;
+}
+.sec-head .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .12em;
+  opacity: .4;
+}
+.sec-head h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: .92;
+  letter-spacing: -.03em;
+}
+.sec-head h2 em { font-style: italic; color: var(--sage); }
+.dark .sec-head h2 em, .sage .sec-head h2 em { color: #A8E8C8; }
+
+/* ── OBJECTIVES GRID ── */
+.obj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+}
+.obj-item {
+  padding: 36px 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.obj-item .n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--sage-deep);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.obj-item h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.obj-item p {
+  font-size: 14px;
+  color: var(--ash);
+  line-height: 1.55;
+}
+
+/* ── CHANNEL CARD ── */
+.channel-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 56px;
+}
+.channel-intro h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1;
+  letter-spacing: -.025em;
+  margin-bottom: 16px;
+}
+.channel-intro h3 em { font-style: italic; color: var(--sage); }
+.dark .channel-intro h3 em { color: #A8E8C8; }
+.channel-intro p { font-size: 15px; color: var(--ash); line-height: 1.6; max-width: 480px; }
+.dark .channel-intro p { color: rgba(244,239,230,.65); }
+
+.channel-badge {
+  background: var(--sage);
+  color: white;
+  padding: 20px 28px;
+  border-radius: 2px;
+  text-align: right;
+}
+.channel-badge .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .75; margin-bottom: 8px; }
+.channel-badge .price { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+.channel-badge .price sup { font-size: 22px; vertical-align: super; letter-spacing: -.01em; }
+.channel-badge .per { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .12em; opacity: .7; margin-top: 6px; }
+
+/* ── INCLUDES LIST ── */
+.includes-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 24px;
+}
+.dark .includes-title { color: #A8E8C8; }
+
+.inc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-left: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.slide:not(.dark) .inc-grid {
+  border-left-color: var(--line);
+  border-top-color: var(--line);
+}
+.inc-item {
+  padding: 28px 32px;
+  border-right: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.slide:not(.dark) .inc-item {
+  border-right-color: var(--line);
+  border-bottom-color: var(--line);
+}
+.inc-item .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--sage);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.inc-item .text strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -.01em;
+  margin-bottom: 5px;
+  color: var(--cream);
+}
+.slide:not(.dark) .inc-item .text strong { color: var(--ink); }
+.inc-item .text span {
+  font-size: 13px;
+  color: rgba(244,239,230,.6);
+  line-height: 1.5;
+}
+.slide:not(.dark) .inc-item .text span { color: var(--ash); }
+
+/* ── MERCADO ADS POSITIONS ── */
+.positions-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.pos-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 24px 20px;
+  border-radius: 2px;
+}
+.pos-card .pos-n { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 12px; }
+.pos-card h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; letter-spacing: -.015em; color: var(--ink); margin-bottom: 8px; }
+.pos-card p { font-size: 13px; color: var(--ash); line-height: 1.5; }
+
+/* ── PRICING SLIDE ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-left: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255,255,255,.12);
+  margin-bottom: 48px;
+}
+.price-col {
+  padding: 40px 36px;
+  border-right: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.price-col.highlight {
+  background: rgba(79,162,126,.12);
+  border-color: rgba(79,162,126,.3);
+}
+.price-col .service-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.5);
+  margin-bottom: 16px;
+}
+.price-col.highlight .service-label { color: #A8E8C8; }
+.price-col .service-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+.price-col .amount {
+  font-family: 'Fraunces', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.05em;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+.price-col.highlight .amount { color: #A8E8C8; }
+.price-col .amount sup { font-size: 28px; vertical-align: super; letter-spacing: -.01em; }
+.price-col .per-month {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: rgba(244,239,230,.45);
+  margin-bottom: 36px;
+}
+.price-col .applies-to {
+  font-size: 13px;
+  color: rgba(244,239,230,.5);
+  line-height: 1.6;
+}
+
+.integral-row {
+  border: 1px solid rgba(79,162,126,.35);
+  background: rgba(79,162,126,.08);
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.integral-row .left .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #A8E8C8;
+  margin-bottom: 8px;
+}
+.integral-row .left h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -.025em;
+  color: var(--cream);
+  line-height: 1;
+}
+.integral-row .left p {
+  font-size: 13px;
+  color: rgba(244,239,230,.55);
+  margin-top: 8px;
+}
+.integral-row .right .big-price {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.05em;
+  color: #A8E8C8;
+  text-align: right;
+}
+.integral-row .right .big-price sup { font-size: 30px; vertical-align: super; }
+.integral-row .right .save-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.45);
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* ── CONDITIONS ── */
+.cond-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+.cond-item {
+  padding: 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.cond-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--sage-deep);
+  letter-spacing: .1em;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.cond-text strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.cond-text p {
+  font-size: 13.5px;
+  color: var(--ash);
+  line-height: 1.55;
+  max-width: 380px;
+}
+
+/* ── CLOSING SLIDE ── */
+.closing-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.closing-tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: rgba(244,239,230,.55);
+  max-width: 700px;
+  line-height: 1.5;
+  margin-bottom: 56px;
+}
+.closing-cta {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: .92;
+  letter-spacing: -.035em;
+  color: var(--cream);
+  margin-bottom: 56px;
+}
+.closing-cta em { font-style: italic; color: var(--sage); }
+.contact-row {
+  display: flex;
+  gap: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.contact-item .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: rgba(244,239,230,.4); margin-bottom: 6px; }
+.contact-item .v { font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream); }
+
+/* ── DECORATIVE ── */
+.deco-line {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .06;
+  font-family: 'Fraunces', serif;
+  font-size: 320px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--sage);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sage);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.tag-pill-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--sage);
+  color: var(--sage);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.divider { height: 1px; background: var(--line); margin: 40px 0; }
+.divider-dark { height: 1px; background: rgba(255,255,255,.1); margin: 40px 0; }
+
+@media print {
+  .slide { page-break-after: always; min-height: auto; padding: 40px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     SLIDE 1 — COVER
+════════════════════════════════════════ -->
+<div class="slide" style="background: var(--paper);">
+  <div class="topbar">
+    <div class="brand-mark">Dilema <em>Creative</em><sup style="color:var(--star);font-size:.5em;">*</sup></div>
+    <div class="mono">dilema.creative</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Plan de Marketing Digital</div>
+    <h1 class="cover-title">MCT SRL<br>+ <em>Water Kingdom</em><sup style="color:var(--star);font-size:.38em;vertical-align:super;margin-left:4px;">*</sup></h1>
+    <p class="cover-sub">Estrategia integral de publicidad digital diseñada para llevar ambas marcas a su próximo nivel de crecimiento.</p>
+    <div class="cover-foot">
+      <div class="cell"><div class="k">Canales</div><div class="v">Google Ads + Mercado Ads</div></div>
+      <div class="cell"><div class="k">Empresas</div><div class="v">MCT SRL / Water Kingdom</div></div>
+      <div class="cell"><div class="k">Vigencia</div><div class="v">30 días</div></div>
+      <div class="cell"><div class="k">Agencia</div><div class="v">Dilema Creative</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 2 — OBJETIVOS
+════════════════════════════════════════ -->
+<div class="slide cream">
+  <div class="topbar">
+    <div class="brand-mark">Dilema <em>Creative</em></div>
+    <div class="mono">01 · Objetivos</div>
+  </div>
+  <div class="sec-head">
+    <span class="num">01</span>
+    <h2>Nuestros <em>objetivos</em></h2>
+  </div>
+  <div class="obj-grid">
+    <div class="obj-item">
+      <div class="n">01 ·</div>
+      <h3>Aumentar la visibilidad</h3>
+      <p>Posicionamos ambas marcas frente a usuarios con intención de compra real, en el momento y canal correctos.</p>
+    </div>
+    <div class="obj-item">
+      <div class="n">02 ·</div>
+      <h3>Generar leads calificados</h3>
+      <p>Campañas orientadas a atraer consultas de calidad, no solo tráfico. El foco está en el contacto que convierte.</p>
+    </div>
+    <div class="obj-item">
+      <div class="n">03 ·</div>
+      <h3>Incrementar ventas</h3>
+      <p>Optimizamos cada peso invertido para que se traduzca en consultas, pedidos y ventas concretas.</p>
+    </div>
+    <div class="obj-item">
+      <div class="n">04 ·</div>
+      <h3>Optimizar el costo por adquisición</h3>
+      <p>Medimos y ajustamos en tiempo real. Cortamos lo que no funciona y escalamos lo que sí da resultados.</p>
+    </div>
+    <div class="obj-item">
+      <div class="n">05 ·</div>
+      <h3>Apuntar a públicos con intención</h3>
+      <p>Segmentación precisa: llegar a quien ya está buscando o tiene alta probabilidad de comprar.</p>
+    </div>
+    <div class="obj-item">
+      <div class="n">06 ·</div>
+      <h3>Acompañar el proceso de decisión</h3>
+      <p>Remarketing y presencia constante para que ningún usuario potencial quede en el camino.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 3 — GOOGLE ADS (descripción)
+════════════════════════════════════════ -->
+<div class="slide dark">
+  <div class="deco-line">G</div>
+  <div class="topbar">
+    <div class="brand-mark">Dilema <em>Creative</em></div>
+    <div class="mono">02 · Google Ads</div>
+  </div>
+  <div class="sec-head">
+    <span class="num">02</span>
+    <h2>Google <em>Ads</em></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:56px;">
+    <div>
+      <div class="tag-pill">🔍 Search — Alta intención</div>
+      <h3 class="serif" style="font-weight:500;font-size:clamp(24px,3vw,38px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px;color:var(--cream);">Aparecer cuando <em style="color:var(--sage);font-style:italic;">te están buscando</em></h3>
+      <p style="font-size:15px;color:rgba(244,239,230,.65);line-height:1.65;margin-bottom:20px;">Tus anuncios aparecen en Google exactamente cuando alguien está buscando lo que vos vendés. El momento de mayor intención de compra en toda la pauta digital.</p>
+      <p style="font-size:14px;color:rgba(244,239,230,.5);line-height:1.6;">También gestionamos Remarketing: tu marca vuelve a aparecer en diarios, portales y sitios web para todos los usuarios que visitaron tu sitio y no convirtieron.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:28px 32px;">
+        <div class="mono" style="color:rgba(244,239,230,.45);margin-bottom:12px;">Aplica para</div>
+        <div class="serif" style="font-size:22px;color:var(--cream);line-height:1.2;">MCT SRL <span style="color:rgba(244,239,230,.35);font-size:16px;">y</span> Water Kingdom</div>
+        <p style="font-size:13px;color:rgba(244,239,230,.5);margin-top:8px;">Campaña independiente por marca, con estrategia y keywords diferenciadas según cada negocio.</p>
+      </div>
+      <div style="background:var(--sage);padding:28px 32px;text-align:right;">
+        <div class="mono" style="color:rgba(255,255,255,.7);margin-bottom:8px;">Inversión mensual</div>
+        <div class="serif" style="font-size:64px;font-weight:500;line-height:.9;letter-spacing:-.04em;color:white;"><sup style="font-size:28px;vertical-align:super;">USD</sup>300</div>
+        <div class="mono" style="color:rgba(255,255,255,.6);margin-top:6px;">por empresa / mes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="includes-title">Qué incluye el servicio</div>
+  <div class="inc-grid">
+    <div class="inc-item">
+      <div class="dot"></div>
+      <div class="text">
+        <strong>Estrategia integral de Google Ads</strong>
+        <span>Análisis del negocio, la competencia y los objetivos para definir el enfoque de campaña más rentable.</span>
+      </div>
+    </div>
+    <div class="inc-item">
+      <div class="dot"></div>
+      <div class="text">
+        <strong>Investigación de keywords y análisis competitivo</strong>
+        <span>Identificamos las búsquedas con mayor intención de compra y las palabras clave negativas que evitan gasto inútil.</span>
+      </div>
+    </div>
+    <div class="inc-item">
+      <div class="dot"></div>
+      <div class="text">
+        <strong>Creación y gestión de campañas</strong>
+        <span>Búsqueda, Display, Shopping y Remarketing según aplique a cada marca y objetivo.</span>
+      </div>
+    </div>
+    <div class="inc-item">
+      <div class="dot"></div>
+      <div class="text">
+        <strong>Optimización de anuncios y conversiones</strong>
+        <span>Ajuste continuo de pujas, copies, extensiones y landing pages para maximizar el rendimiento.</span>
+      </div>
+    </div>
+    <div class="inc-item">
+      <div class="dot"></div>
+      <div class="text">
+        <strong>Reportes mensuales con métricas clave</strong>
+        <span>Resultados claros: impresiones, clics, conversiones, costo por lead, ROAS y evolución mes a mes.</span>
+      </div>
+    </div>
+    <div class="inc-item">
+      <div class="dot"></div>
+      <div class="text">
+        <strong>Soporte y atención personalizada</strong>
+        <span>Canal directo con el equipo, reuniones de seguimiento y respuesta rápida ante cualquier cambio.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 4 — MERCADO ADS (MCT SRL)
+════════════════════════════════════════ -->
+<div class="slide" style="background:var(--paper);">
+  <div class="topbar">
+    <div class="brand-mark">Dilema <em>Creative</em></div>
+    <div class="mono">03 · Mercado Ads</div>
+  </div>
+  <div class="sec-head">
+    <span class="num">03</span>
+    <h2>Mercado <em>Ads</em></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:48px;">
+    <div>
+      <div class="tag-pill-outline">MCT SRL · Exclusivo</div>
+      <h3 class="serif" style="font-weight:500;font-size:clamp(22px,2.8vw,36px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:16px;">Visibilidad dentro del <em style="color:var(--sage);font-style:italic;">marketplace más grande</em> de la región</h3>
+      <p style="font-size:15px;color:var(--ash);line-height:1.65;margin-bottom:16px;">Tus anuncios aparecen en ubicaciones estratégicas dentro de Mercado Libre: home, categorías, páginas de producto y carrito. Usuarios con alta intención de compra, dentro del ecosistema.</p>
+      <p style="font-size:14px;color:var(--ash);line-height:1.6;opacity:.75;">Ideal para aumentar la exposición de tus publicaciones, ganar posición frente a la competencia y capturar demanda existente dentro del marketplace.</p>
+    </div>
+    <div style="background:var(--ink);padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;">
+      <div>
+        <div class="mono" style="color:rgba(244,239,230,.4);margin-bottom:12px;">Aplica para</div>
+        <div class="serif" style="font-size:24px;color:var(--cream);">MCT SRL</div>
+        <p style="font-size:13px;color:rgba(244,239,230,.5);margin-top:6px;">Servicio adicional sobre Google Ads, exclusivo para MCT.</p>
+      </div>
+      <div style="background:var(--sage);padding:24px 28px;text-align:right;">
+        <div class="mono" style="color:rgba(255,255,255,.7);margin-bottom:8px;">Inversión mensual</div>
+        <div class="serif" style="font-size:56px;font-weight:500;line-height:.9;letter-spacing:-.04em;color:white;"><sup style="font-size:22px;vertical-align:super;">USD</sup>200</div>
+        <div class="mono" style="color:rgba(255,255,255,.6);margin-top:6px;">por mes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mono" style="color:var(--sage-deep);margin-bottom:20px;">Posiciones disponibles en Mercado Libre</div>
+  <div class="positions-row">
+    <div class="pos-card">
+      <div class="pos-n">01 ·</div>
+      <h4>Home</h4>
+      <p>Primera impresión en el inicio del marketplace, máxima exposición y alcance masivo.</p>
+    </div>
+    <div class="pos-card">
+      <div class="pos-n">02 ·</div>
+      <h4>Categorías</h4>
+      <p>Presencia dentro de las categorías relevantes para tu producto, ante compradores con intención específica.</p>
+    </div>
+    <div class="pos-card">
+      <div class="pos-n">03 ·</div>
+      <h4>Página de producto</h4>
+      <p>Tu anuncio aparece junto a los productos de la competencia en el momento decisivo de compra.</p>
+    </div>
+    <div class="pos-card">
+      <div class="pos-n">04 ·</div>
+      <h4>Carrito de compras</h4>
+      <p>Último punto antes de la conversión. Alta intención, mínima fricción.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="mono" style="color:var(--sage-deep);margin-bottom:20px;">Qué incluye el servicio</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line);">
+    <div style="padding:24px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div style="width:6px;height:6px;background:var(--sage);border-radius:50%;margin-bottom:12px;"></div>
+      <strong style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);display:block;margin-bottom:6px;">Creación y configuración de campañas</strong>
+      <span style="font-size:13px;color:var(--ash);">Armado estratégico desde cero, alineado al catálogo y objetivos de MCT.</span>
+    </div>
+    <div style="padding:24px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div style="width:6px;height:6px;background:var(--sage);border-radius:50%;margin-bottom:12px;"></div>
+      <strong style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);display:block;margin-bottom:6px;">Revisión de keywords y negativos</strong>
+      <span style="font-size:13px;color:var(--ash);">Análisis y exclusión de términos de bajo desempeño para optimizar el CPC.</span>
+    </div>
+    <div style="padding:24px 28px;border-bottom:1px solid var(--line);">
+      <div style="width:6px;height:6px;background:var(--sage);border-radius:50%;margin-bottom:12px;"></div>
+      <strong style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);display:block;margin-bottom:6px;">Relevamiento de publicaciones</strong>
+      <span style="font-size:13px;color:var(--ash);">Auditamos las publicaciones activas y detectamos oportunidades de mejora.</span>
+    </div>
+    <div style="padding:24px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div style="width:6px;height:6px;background:var(--sage);border-radius:50%;margin-bottom:12px;"></div>
+      <strong style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);display:block;margin-bottom:6px;">Estrategias por categoría y márgenes</strong>
+      <span style="font-size:13px;color:var(--ash);">Invertimos más donde más conviene según margen, stock y demanda.</span>
+    </div>
+    <div style="padding:24px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div style="width:6px;height:6px;background:var(--sage);border-radius:50%;margin-bottom:12px;"></div>
+      <strong style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);display:block;margin-bottom:6px;">Análisis de ACOS y TACOS</strong>
+      <span style="font-size:13px;color:var(--ash);">Medición del costo publicitario sobre las ventas generadas, tanto orgánicas como pagas.</span>
+    </div>
+    <div style="padding:24px 28px;border-bottom:1px solid var(--line);">
+      <div style="width:6px;height:6px;background:var(--sage);border-radius:50%;margin-bottom:12px;"></div>
+      <strong style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);display:block;margin-bottom:6px;">Reportes y reuniones mensuales</strong>
+      <span style="font-size:13px;color:var(--ash);">Seguimiento de resultados con métricas claras y foco en decisiones de negocio.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 5 — PROPUESTA COMERCIAL
+════════════════════════════════════════ -->
+<div class="slide dark">
+  <div class="topbar">
+    <div class="brand-mark">Dilema <em>Creative</em></div>
+    <div class="mono">04 · Propuesta Comercial</div>
+  </div>
+  <div class="sec-head">
+    <span class="num">04</span>
+    <h2>Propuesta <em>comercial</em></h2>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-col">
+      <div class="service-label">Google Ads</div>
+      <div class="service-name">MCT SRL</div>
+      <div class="amount"><sup>USD </sup>300</div>
+      <div class="per-month">/ mes</div>
+      <div class="applies-to">Gestión profesional de campañas en Google: Search, Display y Remarketing.</div>
+    </div>
+    <div class="price-col">
+      <div class="service-label">Google Ads</div>
+      <div class="service-name">Water Kingdom</div>
+      <div class="amount"><sup>USD </sup>300</div>
+      <div class="per-month">/ mes</div>
+      <div class="applies-to">Gestión profesional de campañas en Google: Search, Display y Remarketing.</div>
+    </div>
+    <div class="price-col highlight">
+      <div class="service-label">Mercado Ads</div>
+      <div class="service-name">MCT SRL</div>
+      <div class="amount"><sup>USD </sup>200</div>
+      <div class="per-month">/ mes</div>
+      <div class="applies-to">Gestión de campañas dentro del ecosistema de Mercado Libre: Product Ads y posicionamiento.</div>
+    </div>
+  </div>
+
+  <div class="integral-row">
+    <div class="left">
+      <div class="label">Plan completo · 3 servicios</div>
+      <h3>Plan Integral</h3>
+      <p>Google Ads (MCT + Water Kingdom) + Mercado Ads (MCT). Todo gestionado por el mismo equipo, con visión unificada.</p>
+    </div>
+    <div class="right">
+      <div class="big-price"><sup>USD </sup>700</div>
+      <div class="save-tag">Ahorro USD 100 vs. servicios sueltos</div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;padding:20px 28px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);">
+    <div class="mono" style="color:rgba(244,239,230,.35);margin-bottom:10px;">Importante</div>
+    <p style="font-size:13.5px;color:rgba(244,239,230,.5);line-height:1.6;">Los valores de honorario <strong style="color:rgba(244,239,230,.75);">no incluyen</strong> la inversión publicitaria en Google / Mercado Libre. Cada ingreso, clic o lead generado se descuenta directamente de la pauta que decidan invertir en cada plataforma.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 6 — CONDICIONES COMERCIALES
+════════════════════════════════════════ -->
+<div class="slide cream">
+  <div class="topbar">
+    <div class="brand-mark">Dilema <em>Creative</em></div>
+    <div class="mono">05 · Condiciones</div>
+  </div>
+  <div class="sec-head">
+    <span class="num">05</span>
+    <h2>Condiciones <em>comerciales</em></h2>
+  </div>
+  <div class="cond-grid">
+    <div class="cond-item">
+      <div class="cond-num">01</div>
+      <div class="cond-text">
+        <strong>Vigencia del presupuesto</strong>
+        <p>Válido por 30 días desde la fecha de emisión. Los valores están expresados en dólares estadounidenses (USD).</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-num">02</div>
+      <div class="cond-text">
+        <strong>Cotización dólar blue</strong>
+        <p>Los honorarios se expresan en USD y se abonan al valor del dólar blue vigente al momento del pago.</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-num">03</div>
+      <div class="cond-text">
+        <strong>Modalidad de pago</strong>
+        <p>El primer pago es previo al inicio del servicio. A partir del lanzamiento de campañas, el abono es mensual entre el 1 y el 10 de cada mes.</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-num">04</div>
+      <div class="cond-text">
+        <strong>Formas de pago</strong>
+        <p>Transferencia bancaria en pesos o en dólares. También se puede abonar en efectivo coordinando con el equipo.</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-num">05</div>
+      <div class="cond-text">
+        <strong>Inversión publicitaria separada</strong>
+        <p>Los honorarios de gestión son independientes de la inversión en pauta. El presupuesto publicitario se abona directamente a Google o Mercado Libre.</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-num">06</div>
+      <div class="cond-text">
+        <strong>Recomendación de inversión</strong>
+        <p>En función del rubro y los objetivos definidos, el equipo sugiere un nivel de inversión publicitaria mensual adecuado para cada plataforma.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 7 — CIERRE
+════════════════════════════════════════ -->
+<div class="slide dark">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:40%;background:var(--sage-deep);opacity:.15;pointer-events:none;"></div>
+  <div class="topbar" style="position:relative;">
+    <div class="brand-mark">Dilema <em>Creative</em></div>
+    <div class="mono">dilema.creative</div>
+  </div>
+  <div class="closing-content" style="position:relative;">
+    <p class="closing-tagline">Trabajamos para que la pauta digital no sea un gasto, sino un sistema de adquisición constante y medible.</p>
+    <div class="closing-cta">¿Alguna <em>pregunta?</em><br>Contáctanos.</div>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="k">WhatsApp</div>
+        <div class="v">11 2377-2671</div>
+      </div>
+      <div class="contact-item">
+        <div class="k">Email</div>
+        <div class="v">equipo@dilemacreative.ar</div>
+      </div>
+      <div class="contact-item">
+        <div class="k">Instagram</div>
+        <div class="v">@dilema.creative</div>
+      </div>
+      <div class="contact-item">
+        <div class="k">Web</div>
+        <div class="v">dilema.creative</div>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;margin-top:auto;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;">
+    <div class="mono" style="color:rgba(244,239,230,.25);">Tu socio de crecimiento digital</div>
+    <div class="serif" style="font-size:14px;color:rgba(244,239,230,.25);">© 2025 Dilema Creative</div>
+  </div>
+</div>
+
+</body>
+</html>
