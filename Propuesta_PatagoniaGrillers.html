@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta Digital · Patagonia Grillers — Dilema Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E2A47;
+  --ink-soft: #1B3A5C;
+  --sage: #4FA27E;
+  --sage-deep: #2F7D5E;
+  --cream: #F4EFE6;
+  --paper: #FAF6EE;
+  --paper-2: #EFE8D9;
+  --black: #14161A;
+  --ash: #6B6257;
+  --line: #D9CFBC;
+  --star: #5BB4D6;
+  --bad: #B23A2B;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  background: var(--paper);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 56px;
+  height: 56px;
+}
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.nav-logo em { font-style: italic; color: var(--sage); font-weight: 600; }
+.nav-logo sup { color: var(--star); font-weight: 500; font-size: 0.6em; }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.5);
+  text-decoration: none;
+  transition: color .15s;
+}
+.nav-links a:hover { color: var(--cream); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  padding: 120px 80px 80px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(79,162,126,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(56px, 8vw, 130px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin-bottom: 40px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 400;
+}
+.hero-sub {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-style: italic;
+  color: rgba(244,239,230,0.6);
+  max-width: 680px;
+  line-height: 1.4;
+  margin-bottom: 64px;
+}
+.hero-foot {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 32px;
+}
+.hero-foot .cell {
+  padding: 0 32px 0 0;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.hero-foot .cell:first-child { padding-left: 0; }
+.hero-foot .cell:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+.hero-foot .cell .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.35);
+  margin-bottom: 6px;
+}
+.hero-foot .cell .v {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 96px 80px;
+  border-bottom: 1px solid var(--line);
+}
+section.dark {
+  background: var(--ink);
+  color: var(--cream);
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+section.cream { background: var(--cream); }
+section.sage-bg { background: var(--sage-deep); color: var(--cream); border-bottom-color: rgba(255,255,255,0.1); }
+
+.sec-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+section.dark .sec-label { color: var(--sage); }
+section.cream .sec-label { color: var(--sage-deep); }
+section.cream .sec-label::before { background: var(--sage-deep); }
+
+.sec-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4.5vw, 68px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 48px;
+}
+section.dark .sec-title { color: var(--cream); }
+section.sage-bg .sec-title { color: var(--cream); }
+.sec-title em { font-style: italic; color: var(--sage); font-weight: 400; }
+section.dark .sec-title em { color: var(--sage); }
+
+.lede {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.35;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 760px;
+  color: var(--ash);
+  margin-bottom: 56px;
+}
+section.dark .lede { color: rgba(244,239,230,0.7); }
+section.sage-bg .lede { color: rgba(244,239,230,0.8); }
+
+/* ===== DIAGNÓSTICO CARDS ===== */
+.diag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 48px;
+}
+.diag-card {
+  background: var(--paper);
+  padding: 36px;
+}
+.diag-card.highlight { background: var(--ink); color: var(--cream); }
+.diag-card .dc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 12px;
+}
+.diag-card.highlight .dc-label { color: var(--sage); }
+.diag-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.diag-card.highlight h3 { color: var(--cream); }
+.diag-card h3 em { font-style: italic; color: var(--sage); }
+.diag-card p { font-size: 15px; color: var(--ash); line-height: 1.6; }
+.diag-card.highlight p { color: rgba(244,239,230,0.7); }
+
+/* ===== SERVICIO PRINCIPAL ===== */
+.service-block {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.service-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 32px 40px;
+  border-bottom: 1px solid var(--line);
+  gap: 32px;
+}
+.service-header.active {
+  background: var(--ink);
+}
+.service-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background: var(--sage);
+  color: var(--ink);
+  font-weight: 500;
+  border-radius: 2px;
+}
+.service-badge.soon {
+  background: rgba(244,239,230,0.12);
+  color: rgba(244,239,230,0.5);
+}
+.service-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.service-header.active .service-title { color: var(--cream); }
+.service-title em { font-style: italic; color: var(--sage); }
+.service-body {
+  padding: 36px 40px;
+}
+.includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.include-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.include-item:nth-child(odd) { padding-right: 32px; border-right: 1px solid var(--line); }
+.include-item:nth-child(even) { padding-left: 32px; }
+.include-item:nth-last-child(-n+2) { border-bottom: none; }
+.inc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.include-item .inc-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.include-item .inc-desc {
+  font-size: 13.5px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+
+/* ===== SERVICIO FUTURO ===== */
+.future-block {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  margin-bottom: 24px;
+  overflow: hidden;
+  opacity: 0.75;
+}
+.future-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--line);
+  gap: 32px;
+  background: rgba(14,42,71,0.04);
+}
+.future-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.future-title em { font-style: italic; color: var(--sage-deep); }
+.future-body {
+  padding: 28px 40px;
+  font-size: 15px;
+  color: var(--ash);
+  line-height: 1.65;
+}
+.future-body p + p { margin-top: 10px; }
+
+/* ===== CÓMO TRABAJAMOS ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.step {
+  background: var(--paper);
+  padding: 40px 36px;
+}
+.step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--sage);
+  margin-bottom: 14px;
+}
+.step h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.step h3 em { font-style: italic; color: var(--sage); }
+.step p { font-size: 14.5px; color: var(--ash); line-height: 1.6; }
+
+/* ===== PRICING ===== */
+.pricing-card {
+  background: var(--ink);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 56px;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(79,162,126,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pricing-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 24px;
+}
+.pricing-amount {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(64px, 8vw, 110px);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.pricing-amount span {
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-right: 4px;
+  color: var(--sage);
+  font-weight: 400;
+}
+.pricing-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.4);
+  margin-bottom: 40px;
+}
+.pricing-includes {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+}
+.pi-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: rgba(244,239,230,0.75);
+}
+.pi-item::before {
+  content: '✓';
+  color: var(--sage);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* ===== POR QUÉ DILEMA ===== */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-left: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 56px;
+}
+.pillar-item {
+  padding: 36px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.pillar-n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 12px;
+}
+.pillar-item h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.pillar-item h3 em { font-style: italic; color: var(--sage); }
+.pillar-item p { font-size: 14.5px; color: rgba(244,239,230,0.6); line-height: 1.6; }
+
+/* ===== ROADMAP ===== */
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  background: var(--line);
+  margin-bottom: 48px;
+}
+.rm-phase {
+  background: var(--paper);
+  padding: 32px 28px;
+  position: relative;
+}
+.rm-phase.active { background: var(--sage-deep); color: var(--cream); }
+.rm-phase .rm-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 10px;
+}
+.rm-phase.active .rm-num { color: rgba(212,240,225,0.7); }
+.rm-phase h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.rm-phase h4 em { font-style: italic; color: var(--sage-deep); }
+.rm-phase.active h4 { color: var(--cream); }
+.rm-phase.active h4 em { color: rgba(212,240,225,0.9); }
+.rm-phase p { font-size: 13.5px; color: var(--ash); line-height: 1.6; }
+.rm-phase.active p { color: rgba(244,239,230,0.75); }
+.rm-phase .rm-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: rgba(79,162,126,0.15);
+  color: var(--sage-deep);
+  border-radius: 2px;
+}
+.rm-phase.active .rm-tag {
+  background: rgba(255,255,255,0.15);
+  color: rgba(244,239,230,0.8);
+}
+
+/* ===== CTA / CIERRE ===== */
+.cta-section {
+  background: var(--ink);
+  padding: 96px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(79,162,126,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 32px;
+}
+.cta-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+.cta-title em { font-style: italic; color: var(--sage); font-weight: 400; }
+.cta-sub {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: rgba(244,239,230,0.55);
+  margin-bottom: 48px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 18px 48px;
+  background: var(--sage);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background .15s, transform .1s;
+}
+.cta-btn:hover { background: #5bb88e; transform: translateY(-1px); }
+.cta-contact {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(244,239,230,0.4);
+}
+.cta-contact a { color: rgba(244,239,230,0.6); text-decoration: none; }
+.cta-contact a:hover { color: var(--cream); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--black);
+  padding: 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 40px;
+}
+.footer-sig {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  line-height: 1;
+}
+.footer-sig em { font-style: italic; color: var(--sage); font-weight: 400; }
+.footer-sig sup { color: var(--star); font-weight: 500; font-size: 0.5em; }
+.footer-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.35);
+  line-height: 1.9;
+  text-align: center;
+}
+.footer-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: rgba(244,239,230,0.35);
+  line-height: 1.9;
+  text-align: right;
+}
+
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 28px 56px; }
+  .hero-foot { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .hero-foot .cell { border-right: none; padding: 0 0 20px !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  section { padding: 64px 28px; }
+  .sec-title { font-size: clamp(32px, 6vw, 52px); }
+  .diag-grid, .includes-grid, .pricing-includes, .steps, .pillar-grid, .roadmap { grid-template-columns: 1fr; }
+  .include-item:nth-child(odd) { padding-right: 0; border-right: none; }
+  .include-item:nth-child(even) { padding-left: 0; }
+  .include-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .include-item:last-child { border-bottom: none; }
+  .service-header { grid-template-columns: 1fr; gap: 12px; }
+  .future-header { grid-template-columns: 1fr; gap: 12px; }
+  .pricing-card { padding: 36px 28px; }
+  .cta-section { padding: 72px 28px; }
+  footer { grid-template-columns: 1fr; text-align: left; padding: 36px 28px; }
+  .footer-meta, .footer-right { text-align: left; }
+  .roadmap .rm-phase { border-bottom: 1px solid var(--line); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dilema <em>creative</em><sup>*</sup></div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#como">Cómo</a></li>
+    <li><a href="#precio">Precio</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-kicker">Propuesta de estrategia digital · Patagonia Grillers</div>
+    <h1 class="serif">El fuego ya<br>está ahí.<br><em>Falta que lo vean.</em></h1>
+    <p class="hero-sub">Contenido que muestra lo que hacen y campañas que lo llevan a quienes necesitan un asado extraordinario en Perth.</p>
+  </div>
+  <div class="hero-foot">
+    <div class="cell"><div class="k">Servicio</div><div class="v">Contenido + Meta Ads</div></div>
+    <div class="cell" style="padding-left:32px"><div class="k">Mercado</div><div class="v">Perth, Australia</div></div>
+    <div class="cell" style="padding-left:32px"><div class="k">Inicio</div><div class="v">Arranque inmediato</div></div>
+    <div class="cell"><div class="k">Fase actual</div><div class="v">Contenido + Pauta</div></div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section id="diagnostico">
+  <div class="sec-label">01 / Diagnóstico</div>
+  <h2 class="sec-title serif">Lo que <em>vemos</em><br>hoy.</h2>
+  <p class="lede">Patagonia Grillers tiene algo que no se construye con presupuesto: un producto visual, diferencial y con historia. El trabajo es que lo vea mucha más gente.</p>
+
+  <div class="diag-grid" style="grid-template-columns:1fr;max-width:860px">
+    <div class="diag-card highlight">
+      <div class="dc-label">La oportunidad</div>
+      <h3>El <em>asado argentino</em> en Perth es nicho puro</h3>
+      <p>En Australia, el asado a la parrilla argentina no es genérico: es una propuesta única con identidad clara. Eso en comunicación digital vale oro — es diferenciador natural, no hay que inventarlo. Cada evento tiene imágenes y videos que, editados y publicados con criterio, se convierten en el motor principal de captación de nuevos clientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="cream" id="servicios">
+  <div class="sec-label">02 / Servicios</div>
+  <h2 class="sec-title serif">Lo que <em>arrancamos</em><br>desde el día uno.</h2>
+  <p class="lede">Dos servicios que se retroalimentan: el contenido alimenta las campañas y las campañas amplifican el contenido. No los diseñamos por separado porque no funcionan por separado.</p>
+
+  <!-- SERVICIO 1 -->
+  <div class="service-block">
+    <div class="service-header active">
+      <div>
+        <div class="service-title serif">Edición de <em>Contenido</em> para Meta</div>
+        <div style="font-family:'Inter',sans-serif;font-size:13.5px;color:rgba(244,239,230,0.55);margin-top:6px">Instagram + Facebook · Orgánico y creativas para pauta</div>
+      </div>
+      <div class="service-badge">Activo</div>
+    </div>
+    <div class="service-body">
+      <p style="font-size:15px;color:var(--ash);max-width:720px;margin-bottom:32px;line-height:1.65">Uds. nos mandan el material crudo de cada evento — videos, fotos, lo que tengan. Nosotros lo editamos para que funcione en Meta: tanto para el canal orgánico como para usarlo directamente en las campañas pagas.</p>
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Edición de video para Reels/Stories</div>
+            <div class="inc-desc">Recorte, ritmo, subtítulos, música y texto adaptado a formato vertical y cuadrado. Para subir orgánico y usar como creativa de pauta.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Copy para cada publicación</div>
+            <div class="inc-desc">El texto que acompaña cada pieza: caption, CTA, hashtags. Tono directo, sin flores, que invite a pedir cotización.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Piezas estáticas para feed</div>
+            <div class="inc-desc">Carruseles y posts con las fotos del evento, con formato visual consistente que construye identidad de marca.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Adaptación de materiales para anuncios</div>
+            <div class="inc-desc">Las mismas piezas optimizadas para correr como ads: proporciones correctas, texto en pantalla antes de los 3 segundos, hook visible.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Revisión y ajustes sin límite</div>
+            <div class="inc-desc">Cada pieza se ajusta hasta que esté bien. Sin "correcciones extra" ni cobros adicionales por iteraciones.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICIO 2 -->
+  <div class="service-block">
+    <div class="service-header active">
+      <div>
+        <div class="service-title serif">Campañas de <em>Meta Ads</em></div>
+        <div style="font-family:'Inter',sans-serif;font-size:13.5px;color:rgba(244,239,230,0.55);margin-top:6px">Facebook + Instagram · Perth, Australia</div>
+      </div>
+      <div class="service-badge">Activo</div>
+    </div>
+    <div class="service-body">
+      <p style="font-size:15px;color:var(--ash);max-width:720px;margin-bottom:32px;line-height:1.65">Campañas orientadas a captar gente que está organizando eventos privados, cumpleaños, casamientos o reuniones en Perth. El objetivo no es solo que nos conozcan — es que nos pidan cotización.</p>
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Configuración completa de la cuenta</div>
+            <div class="inc-desc">Píxel de Meta instalado y verificado, Business Manager ordenado, eventos de conversión configurados desde cero.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Armado de audiencias objetivo</div>
+            <div class="inc-desc">Segmentación por zona (Perth y suburbs), intereses (eventos, catering, gastronomía argentina) y audiencias de remarketing.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Lanzamiento de campañas</div>
+            <div class="inc-desc">Estructura de campañas por objetivo: reconocimiento para nuevas audiencias y conversión/mensajes para quienes ya interactuaron.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Optimización semanal</div>
+            <div class="inc-desc">Revisión de métricas cada semana. Ajuste de presupuesto, creatividades y segmentación según lo que vaya funcionando.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Reporte mensual</div>
+            <div class="inc-desc">Resumen claro de alcance, costo por resultado, interacciones y leads generados. Sin dashboards indescifrables — solo lo que importa.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="inc-dot"></div>
+          <div>
+            <div class="inc-title">Coordinación con contenido</div>
+            <div class="inc-desc">Las piezas editadas del primer servicio se usan directamente como creatividades de anuncio. No hay desconexión entre lo orgánico y lo pago.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUTURO: EMAIL -->
+  <div style="margin-top:48px;margin-bottom:12px">
+    <div class="sec-label" style="font-size:10px">A futuro — cuando estén listos</div>
+  </div>
+
+  <div class="future-block">
+    <div class="future-header">
+      <div>
+        <div class="future-title serif">Email <em>Marketing</em></div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:var(--ash);margin-top:4px">Retroalimentación con Meta · Nurturing de prospectos</div>
+      </div>
+      <div class="service-badge soon">A futuro</div>
+    </div>
+    <div class="future-body">
+      <p>Si Patagonia Grillers acumula una base de contactos — clientes anteriores, prospectos que consultaron, suscriptores — el email se convierte en un canal de bajo costo y alto impacto.</p>
+      <p>La lógica: usar esa lista para crear <strong style="color:var(--ink)">audiencias personalizadas en Meta</strong> (custom audiences y lookalikes) que mejoran la eficiencia de las campañas, más campañas de email propias para reactivar clientes que ya contrataron o recordar a quienes consultaron y no cerraron.</p>
+    </div>
+  </div>
+
+  <!-- FUTURO: GOOGLE -->
+  <div class="future-block">
+    <div class="future-header">
+      <div>
+        <div class="future-title serif">Google <em>Ads</em></div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:var(--ash);margin-top:4px">Búsqueda · Captura de demanda activa en Perth</div>
+      </div>
+      <div class="service-badge soon">A futuro</div>
+    </div>
+    <div class="future-body">
+      <p>Cuando alguien en Perth busca "Argentine BBQ catering", "asado catering Perth" o "private event catering Perth", Google Ads nos pone primero en esa búsqueda.</p>
+      <p>Es el canal para capturar demanda activa: gente que ya decidió contratar un servicio de catering y está comparando opciones. Se complementa perfecto con Meta — Meta genera el deseo, Google captura la intención.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJAMOS -->
+<section id="como">
+  <div class="sec-label">03 / Proceso</div>
+  <h2 class="sec-title serif">Cómo arrancamos <em>desde el día uno</em>.</h2>
+  <p class="lede">Sin setup eterno. La primera semana ya está configurado todo y la segunda semana ya hay contenido y campañas corriendo.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">SEMANA 01</div>
+      <h3 class="serif">Setup y <em>accesos</em>.</h3>
+      <p>Configuración del Business Manager, instalación del Píxel, creación del catálogo de audiencias y revisión del material disponible. Todo el backend listo antes de gastar un peso en pauta.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">SEMANA 02</div>
+      <h3 class="serif">Primeras piezas <em>y lanzamiento</em>.</h3>
+      <p>Editamos las primeras piezas con el material que nos manden, armamos el calendario del mes y lanzamos las primeras campañas de reconocimiento. Empezamos a juntar datos reales.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">SEMANA 03+</div>
+      <h3 class="serif">Optimización <em>continua</em>.</h3>
+      <p>Revisión semanal de métricas, ajuste de creatividades según lo que performa, nuevas piezas de contenido por evento. Reporte mensual con resultados concretos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="cream">
+  <div class="sec-label">04 / Hoja de Ruta</div>
+  <h2 class="sec-title serif">El plan a <em>largo plazo</em>.</h2>
+  <p class="lede">Arrancamos con lo concreto y vamos sumando capas a medida que el negocio crece y los canales maduran.</p>
+
+  <div class="roadmap">
+    <div class="rm-phase active">
+      <div class="rm-num">FASE 01 · HOY</div>
+      <h4 class="serif">Contenido + <em>Meta Ads</em></h4>
+      <p>Edición de material, calendario orgánico, campañas de Meta. Base digital sólida y primeros resultados medibles.</p>
+      <span class="rm-tag">Arranque</span>
+    </div>
+    <div class="rm-phase">
+      <div class="rm-num">FASE 02 · MES 3+</div>
+      <h4 class="serif">Email <em>Marketing</em></h4>
+      <p>Lista de contactos activa, campañas de email y audiencias personalizadas para retroalimentar Meta con datos propios.</p>
+      <span class="rm-tag">Expansión</span>
+    </div>
+    <div class="rm-phase">
+      <div class="rm-num">FASE 03 · MES 3+</div>
+      <h4 class="serif">Google <em>Ads</em></h4>
+      <p>Campañas de Search en Perth capturando demanda activa. Complemento perfecto cuando Meta ya generó reconocimiento.</p>
+      <span class="rm-tag">Escala</span>
+    </div>
+    <div class="rm-phase">
+      <div class="rm-num">FASE 04</div>
+      <h4 class="serif">Full <em>funnel</em></h4>
+      <p>Los cuatro canales trabajando juntos: Meta genera deseo, Google captura intención, Email nutre y retiene, contenido alimenta todo.</p>
+      <span class="rm-tag">Full stack</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="dark" id="precio">
+  <div class="sec-label">05 / Inversión</div>
+  <h2 class="sec-title serif">Precio claro,<br>sin <em>sorpresas</em>.</h2>
+  <p class="lede">Un solo número mensual que incluye los dos servicios. Sin cobros extras por revisiones, sin "setup fee", sin mínimo de permanencia.</p>
+
+  <div class="pricing-card">
+    <div class="pricing-label">Inversión mensual</div>
+    <div class="pricing-amount serif"><span>USD</span>700</div>
+    <div class="pricing-period">por mes · sin permanencia mínima</div>
+    <div class="pricing-includes">
+      <div class="pi-item">Edición de videos para Reels y Stories</div>
+      <div class="pi-item">Armado y gestión de Meta Ads</div>
+      <div class="pi-item">Piezas estáticas para feed</div>
+      <div class="pi-item">Optimización semanal de campañas</div>
+      <div class="pi-item">Copy para todas las publicaciones</div>
+      <div class="pi-item">Reporte mensual de resultados</div>
+      <div class="pi-item">Revisiones sin límite</div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;padding:28px 40px;border:1px solid rgba(255,255,255,0.1);max-width:800px">
+    <div class="mono" style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage);margin-bottom:10px">Presupuesto de pauta</div>
+    <p style="font-size:14.5px;color:rgba(244,239,230,0.6);line-height:1.65">El presupuesto de pauta en Meta Ads es <strong style="color:var(--cream)">adicional y queda en la cuenta de Patagonia Grillers</strong> — Dilema no lo cobra ni toca. El monto se define según los objetivos y el ticket promedio de los servicios que brinden.</p>
+  </div>
+</section>
+
+<!-- POR QUÉ DILEMA -->
+<section id="nosotros">
+  <div class="sec-label">06 / Por qué Dilema</div>
+  <h2 class="sec-title serif">La agencia que<br>se <em>involucra</em>.</h2>
+  <p class="lede">No somos una agencia de 50 clientes donde tu cuenta la maneja alguien que no conoce tu negocio. Tenemos pocos clientes a propósito, para darles el mejor servicio posible.</p>
+
+  <div class="pillar-grid">
+    <div class="pillar-item" style="background:var(--ink)">
+      <div class="pillar-n">01</div>
+      <h3 class="serif">Resultado <em>antes</em><br>que relato.</h3>
+      <p>No te vendemos "presencia digital". Te mostramos alcance, costo por resultado y leads generados. Si algo no funciona, lo decimos.</p>
+    </div>
+    <div class="pillar-item" style="background:var(--ink)">
+      <div class="pillar-n">02</div>
+      <h3 class="serif">Contenido y pauta <em>integrados</em>.</h3>
+      <p>Las piezas que editamos se usan en orgánico y en pauta. No hay desconexión entre lo que publicás y lo que anunciás.</p>
+    </div>
+    <div class="pillar-item" style="background:var(--ink)">
+      <div class="pillar-n">03</div>
+      <h3 class="serif">Sin <em>surpresas</em><br>ni letra chica.</h3>
+      <p>USD 700 por mes es todo lo que pagás por los servicios. Sin cobros por revisiones, sin fees escondidos, sin mínimo de permanencia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contacto">
+  <div class="cta-eyebrow">Próximo paso</div>
+  <h2 class="cta-title serif">Estamos listos<br>para <em>arrancar</em>.</h2>
+  <p class="cta-sub">Cualquier consulta, nos encontrás acá.</p>
+  <div class="cta-contact">
+    <span>Nacho López Cardone</span>
+    <span>·</span>
+    <a href="mailto:equipo@dilemacreative.ar">equipo@dilemacreative.ar</a>
+    <span>·</span>
+    <a href="https://www.instagram.com/dilema.creative/" target="_blank">@dilema.creative</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-sig serif">Dilema <em>creative</em><sup>*</sup></div>
+  <div class="footer-meta">
+    Propuesta comercial<br>
+    Patagonia Grillers<br>
+    Mayo 2026
+  </div>
+  <div class="footer-right">
+    dilemacreative.ar<br>
+    Buenos Aires, Argentina
+  </div>
+</footer>
+
+</body>
+</html>
