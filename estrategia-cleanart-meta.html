@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cleanart × Dilema — Estrategia Meta Ads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E2A47;
+    --sage: #4FA27E;
+    --sage-deep: #2F7D5E;
+    --cream: #F4EFE6;
+    --paper: #FAF6EE;
+    --paper-2: #EFE8D9;
+    --black: #14161A;
+    --ash: #6B6257;
+    --line: #D9CFBC;
+    --star: #5BB4D6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--paper); }
+  body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--black); -webkit-font-smoothing: antialiased; padding: 0 0 80px; }
+  .hero { background: var(--ink); color: var(--cream); padding: 56px 64px 48px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; right: -60px; top: -60px; width: 320px; height: 320px; border-radius: 50%; background: rgba(79,162,126,0.12); pointer-events: none; }
+  .hero .tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .hero .tag::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--sage); }
+  .hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(42px, 7vw, 72px); line-height: 0.92; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--sage); font-weight: 400; }
+  .hero .sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: rgba(244,239,230,0.6); max-width: 480px; line-height: 1.45; margin-bottom: 40px; }
+  .hero-meta { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(244,239,230,0.15); }
+  .hero-meta .item .k { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(244,239,230,0.4); margin-bottom: 4px; }
+  .hero-meta .item .v { font-family: 'Fraunces', serif; font-size: 16px; color: var(--cream); }
+  .body { padding: 0 64px; }
+  .sec { padding: 52px 0; }
+  .sec-label { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 16px; }
+  .sec h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 28px; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
+  .sec h2 em { font-style: italic; color: var(--sage-deep); }
+  .sec p { color: #2a2a2a; max-width: 640px; margin-bottom: 12px; }
+  .steps { display: grid; gap: 16px; margin-top: 28px; }
+  .step { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; background: var(--paper-2); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; }
+  .step .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--sage); padding-top: 2px; }
+  .step .text strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .step .text span { font-size: 13.5px; color: var(--ash); line-height: 1.5; }
+  .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .aud-card { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+  .aud-card .aud-title { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+  .aud-card ul { list-style: none; padding: 0; }
+  .aud-card ul li { font-size: 13px; color: var(--ash); padding: 3px 0 3px 14px; position: relative; }
+  .aud-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 11px; }
+  .inv-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+  .inv-table th { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ash); text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+  .inv-table td { padding: 14px 16px; border-bottom: 1px solid var(--paper-2); vertical-align: top; }
+  .inv-table tr:last-child td { border-bottom: none; }
+  .inv-table td:first-child { color: var(--ink); font-weight: 500; }
+  .inv-table td:last-child { color: var(--ash); font-size: 13px; }
+  .inv-table .highlight-row td { background: var(--ink); color: var(--cream); font-weight: 600; }
+  .inv-table .highlight-row td:last-child { color: rgba(244,239,230,0.7); }
+  .content-note { background: var(--cream); border: 1px solid var(--line); border-left: 3px solid var(--sage); border-radius: 0 8px 8px 0; padding: 20px 24px; margin-top: 16px; }
+  .content-note .cn-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; color: var(--ink); margin-bottom: 10px; }
+  .content-note p { font-size: 13.5px; color: #333; margin-bottom: 8px; }
+  .content-note p:last-child { margin-bottom: 0; }
+  .close-sec { background: var(--ink); color: var(--cream); padding: 48px 64px; }
+  .close-sec .close-label { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+  .close-sec .close-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 28px; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .close-sec .close-title em { font-style: italic; color: var(--sage); }
+  .close-sec p { color: rgba(244,239,230,0.65); font-size: 14px; max-width: 540px; line-height: 1.6; }
+  .close-sig { margin-top: 40px; font-family: 'Fraunces', serif; font-size: 18px; color: var(--cream); border-top: 1px solid rgba(244,239,230,0.15); padding-top: 24px; }
+  .close-sig em { font-style: italic; color: var(--sage); }
+  .close-sig .star { color: var(--star); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">Estrategia · Meta Ads · Lead Generation</div>
+  <h1>Cleanart<br>entra <em>a Meta</em>.</h1>
+  <p class="sub">Prueba de un mes para validar si Meta Ads trae leads calificados para el nuevo servicio de limpieza industrial.</p>
+  <div class="hero-meta">
+    <div class="item"><div class="k">Cliente</div><div class="v">DOS Argentina / Cleanart</div></div>
+    <div class="item"><div class="k">Canal</div><div class="v">Meta Ads (Facebook + Instagram)</div></div>
+    <div class="item"><div class="k">Duración</div><div class="v">1 mes de prueba</div></div>
+    <div class="item"><div class="k">Fecha</div><div class="v">Mayo 2026</div></div>
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="sec">
+    <div class="sec-label">01 / Contexto</div>
+    <h2>Qué estamos <em>validando</em></h2>
+    <p>Cleanart es el nuevo servicio de limpieza industrial de DOS Argentina — fábricas, empresas, plantas. El objetivo de esta prueba es uno solo: ver si Meta Ads genera leads calificados de verdad. No visitas, no clics. Personas que piden cotización y tienen el perfil para cerrar.</p>
+    <p>Si funciona, esto abre la puerta a sumar Meta Ads como canal permanente para Cleanart.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">02 / Estrategia</div>
+    <h2>Formulario instantáneo <em>con filtro</em></h2>
+    <p>Campaña de clientes potenciales con formulario instantáneo en Meta, conectado a Google Sheets para que los leads lleguen en tiempo real. El formulario incluye preguntas condicionales para filtrar al que está mirando del que realmente necesita el servicio.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div class="text"><strong>Campaña de Clientes Potenciales en Meta</strong><span>Objetivo Lead. Presupuesto de ARS $10.000/día mínimo. Sin landing, sin fricción extra — el formulario se completa sin salir de la app.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div class="text"><strong>Formulario con preguntas condicionales</strong><span>Nombre, empresa, rubro, y al menos una pregunta de calificación: "¿Cuántos m² tiene el espacio que necesitás limpiar?" o "¿Con qué frecuencia necesitás el servicio?". Eso solo lo responde alguien que lo necesita en serio.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div class="text"><strong>Conexión directa a Google Sheets</strong><span>Cada lead entra automáticamente a una planilla compartida. Sin demoras, sin exportar manualmente. El equipo de Cleanart lo ve al instante.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div class="text"><strong>Seguimiento y evaluación al mes</strong><span>Al final de los 30 días, revisamos cuántos leads entraron, cuántos eran calificados y cuántos avanzaron. Con eso definimos si escalar o ajustar.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">03 / Audiencia</div>
+    <h2>A quién <em>le hablamos</em></h2>
+    <p>Dos frentes principales para testear cuál convierte mejor con el presupuesto del primer mes.</p>
+    <div class="audience-grid">
+      <div class="aud-card">
+        <div class="aud-title">Segmentación por industria</div>
+        <ul>
+          <li>Encargados de mantenimiento</li>
+          <li>Dueños de PYME / gerentes</li>
+          <li>Administración de plantas</li>
+          <li>Sector alimenticio, metalúrgico, logística</li>
+        </ul>
+      </div>
+      <div class="aud-card">
+        <div class="aud-title">Segmentación geográfica</div>
+        <ul>
+          <li>GBA / Zona industrial</li>
+          <li>Radios ajustables según operación de Cleanart</li>
+          <li>Excluir residencial puro</li>
+          <li>Prioridad: zonas con alta densidad industrial</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">04 / Inversión</div>
+    <h2>Números <em>claros</em></h2>
+    <table class="inv-table">
+      <thead>
+        <tr><th>Concepto</th><th>Monto</th><th>Detalle</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gestión Meta Ads — Cleanart</td>
+          <td>USD 200/mes</td>
+          <td>Precio de arranque para acompañarlos en la validación. El fee regular es USD 300. Una vez que veamos resultados, lo revisamos juntos.</td>
+        </tr>
+        <tr>
+          <td>Inversión en pauta</td>
+          <td>ARS $10.000/día mínimo</td>
+          <td>~ARS $300.000/mes. Facturado directo a Meta por el cliente.</td>
+        </tr>
+        <tr>
+          <td>Fee actual DOS Argentina</td>
+          <td>USD 550/mes</td>
+          <td>Sin cambios. Cleanart se suma como servicio adicional.</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Total gestión (ambos servicios)</td>
+          <td>USD 750/mes</td>
+          <td>Paquete completo: DOS Argentina + Cleanart.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">05 / Contenido</div>
+    <h2>El creativo <em>importa</em></h2>
+    <p>Meta no distribuye igual un anuncio genérico que uno bien producido. Para que la campaña funcione, necesitamos creativos específicos para este servicio — no cualquier imagen sirve.</p>
+    <div class="content-note">
+      <div class="cn-title">¿Quién hace el contenido?</div>
+      <p>Nosotros podemos cotizar la producción de creativos específicos para Meta. También está perfecto si lo trabajan con Viole o Male — lo que necesitamos en ese caso es darles los formatos y briefings que funcionan para campañas de leads B2B, para que el resultado sea útil para pauta y no solo para redes orgánicas.</p>
+      <p>No hay problema en pasarles esos formatos sin costo. Pero vale aclararlo: el creativo es parte del resultado. Un buen formulario con un anuncio mediocre no convierte.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="close-sec">
+  <div class="close-label">El objetivo</div>
+  <div class="close-title">Un mes para saber <em>si funciona</em>.</div>
+  <p>No prometemos X leads porque no conocemos todavía la respuesta del mercado a Cleanart. Lo que sí garantizamos: una estructura armada para medir bien, un formulario que filtra, y la información que necesitás para tomar la decisión de escalar o no.</p>
+  <div class="close-sig">Dilema <em>creative</em><span class="star">*</span></div>
+</div>
+
+</body>
+</html>
