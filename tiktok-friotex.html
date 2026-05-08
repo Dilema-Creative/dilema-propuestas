@@ -1,1 +1,505 @@
-﻿Set-Content -Path "C:\Dilema\dilema-propuestas\tiktok-friotex.html" -Value (Get-Clipboard) -Encoding UTF8
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia TikTok — Friotex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E2A47;
+    --sage: #4FA27E;
+    --sage-deep: #2F7D5E;
+    --paper: #FAF6EE;
+    --cream: #F4EFE6;
+    --star: #5BB4D6;
+    --ash: #6B6257;
+    --line: #D9CFBC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 48px 24px 40px;
+  }
+  .hero-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+  }
+  .hero h1 em { font-style: italic; color: var(--sage); }
+  .hero-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(244,239,230,0.5);
+    letter-spacing: 0.08em;
+    margin-top: 16px;
+  }
+
+  /* MAIN */
+  .main { padding: 32px 20px 64px; max-width: 680px; margin: 0 auto; }
+
+  /* SECTION */
+  .section { margin-bottom: 40px; }
+  .sec-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* INTRO */
+  .intro {
+    background: var(--cream);
+    border-left: 3px solid var(--sage);
+    border-radius: 0 4px 4px 0;
+    padding: 18px 20px;
+    font-size: 14.5px;
+    color: var(--ash);
+    line-height: 1.7;
+  }
+  .intro strong { color: var(--ink); }
+
+  /* PHASES */
+  .phase {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .phase-head {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .phase-head.alt { background: var(--sage-deep); }
+  .phase-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .phase-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+  .phase-duration {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+  .phase-body { padding: 18px; }
+  .phase-desc {
+    font-size: 13.5px;
+    color: var(--ash);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .phase-desc strong { color: var(--ink); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    color: var(--ash);
+  }
+  .tag.accent {
+    background: #E8F5EE;
+    border-color: var(--sage);
+    color: var(--sage-deep);
+    font-weight: 500;
+  }
+
+  /* CONTENT TABLE */
+  .content-rows { background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .content-row {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .content-row:last-child { border-bottom: none; }
+  .cr-tipo {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .cr-idea {
+    font-size: 13px;
+    color: var(--ash);
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .cr-why {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--sage-deep);
+    letter-spacing: 0.03em;
+  }
+
+  /* BUDGET */
+  .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .budget-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .budget-card.highlight {
+    border-color: var(--sage);
+    background: #E8F5EE;
+  }
+  .budget-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 6px;
+  }
+  .budget-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .budget-note {
+    font-size: 10.5px;
+    color: var(--ash);
+    line-height: 1.4;
+  }
+
+  /* ECOSYSTEM */
+  .eco {
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .eco-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .eco-row:last-child { border-bottom: none; }
+  .eco-icon { font-size: 20px; width: 32px; text-align: center; flex-shrink: 0; }
+  .eco-content { flex: 1; }
+  .eco-name {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .eco-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(244,239,230,0.5);
+    letter-spacing: 0.05em;
+  }
+  .eco-arrow {
+    font-size: 12px;
+    color: var(--sage);
+    opacity: 0.8;
+    padding: 4px 0 4px 44px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .eco-note {
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: var(--ash);
+    line-height: 1.65;
+  }
+  .eco-note strong { color: var(--ink); }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+  .step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--sage);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-text { font-size: 13.5px; color: var(--ash); line-height: 1.6; }
+  .step-text strong { color: var(--ink); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--ink);
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .footer-sig {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .footer-sig em { font-style: italic; color: var(--sage); }
+  .footer-sig .star { color: var(--star); font-style: normal; font-size: 0.6em; vertical-align: super; }
+  .footer-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: rgba(244,239,230,0.4);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-kicker">Estrategia digital · Friotex</div>
+  <h1>TikTok Ads:<br><em>plan de arranque</em></h1>
+  <div class="hero-sub">Secaderos & Abatidores · Cuenta nueva · Inversión de prueba</div>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="sec-label">Por qué empezar así</div>
+    <div class="intro">
+      Friotex vende equipamiento de ticket alto donde la decisión de compra no es inmediata — el cliente necesita ver la marca varias veces antes de pedir un presupuesto. TikTok en esta etapa no cierra ventas: <strong>hace que te conozcan</strong>. Eso hace que después los anuncios en Meta y Google conviertan mejor, porque el cliente ya sabe quién es Friotex.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Etapas del plan</div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <div>
+          <div class="phase-tag">Etapa 01</div>
+          <div class="phase-title">Que te conozcan</div>
+        </div>
+        <div class="phase-duration">Mes 1 · 45 días</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-desc">El objetivo es que la plataforma aprenda a quién mostrarle los videos y que la cuenta empiece a generar actividad. Nos enfocamos en <strong>que los videos se vean</strong> — nada de pedir contacto todavía. Primero hay que ver qué video funciona mejor.</div>
+        <div class="tags">
+          <span class="tag">Visualizaciones de video</span>
+          <span class="tag">1 campaña · 2 grupos</span>
+          <span class="tag">3–4 videos por grupo</span>
+          <span class="tag accent">$200.000–$250.000/mes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head alt">
+        <div>
+          <div class="phase-tag">Etapa 02</div>
+          <div class="phase-title">Captación de consultas</div>
+        </div>
+        <div class="phase-duration">Mes 2–3</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-desc">Con los videos que mejor funcionaron, sumamos un grupo de anuncios para <strong>conseguir consultas</strong> mediante un formulario dentro de TikTok. La propuesta no es "pedí un presupuesto" — es algo más fácil de aceptar: una demo, una guía, o una consulta sin compromiso.</div>
+        <div class="tags">
+          <span class="tag">Formulario de contacto</span>
+          <span class="tag">A quienes ya vieron los videos</span>
+          <span class="tag">Propuesta fácil de aceptar</span>
+          <span class="tag accent">$250.000–$300.000/mes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Qué tipo de videos funcionan</div>
+    <div class="content-rows">
+      <div class="content-row">
+        <div class="cr-tipo">Producto en funcionamiento</div>
+        <div class="cr-idea">Un abatidor bajando temperatura en tiempo real. Un secadero en uso en cocina real.</div>
+        <div class="cr-why">→ El producto se vende solo cuando se ve en acción</div>
+      </div>
+      <div class="content-row">
+        <div class="cr-tipo">Educativo y directo</div>
+        <div class="cr-idea">"Por qué todo restaurant necesita un abatidor" — 30 segundos, sin vueltas.</div>
+        <div class="cr-why">→ El dueño no sabe que lo necesita hasta que se lo explican claro</div>
+      </div>
+      <div class="content-row">
+        <div class="cr-tipo">Comparativa</div>
+        <div class="cr-idea">Cómo se trabaja sin el equipo vs. con el equipo: tiempo, calidad, desperdicio.</div>
+        <div class="cr-why">→ Genera preguntas, comentarios y tiempo de visualización alto</div>
+      </div>
+      <div class="content-row">
+        <div class="cr-tipo">Cliente real</div>
+        <div class="cr-idea">Un cliente mostrando el equipo instalado y funcionando en su negocio.</div>
+        <div class="cr-why">→ Ver que otro negocio lo usa genera confianza en este rubro</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Inversión de prueba · Etapa 1</div>
+    <div class="budget-grid">
+      <div class="budget-card">
+        <div class="budget-label">Mínimo</div>
+        <div class="budget-num">$200K</div>
+        <div class="budget-note">para que el sistema aprenda</div>
+      </div>
+      <div class="budget-card highlight">
+        <div class="budget-label">Recomendado</div>
+        <div class="budget-num">$250K</div>
+        <div class="budget-note">margen para probar videos</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-label">Techo</div>
+        <div class="budget-num">$300K</div>
+        <div class="budget-note">si los resultados son buenos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Cómo mejora lo que ya está funcionando</div>
+    <div class="eco">
+      <div class="eco-row">
+        <div class="eco-icon">🎵</div>
+        <div class="eco-content">
+          <div class="eco-name">TikTok</div>
+          <div class="eco-role">Que te conozcan · Generar interés</div>
+        </div>
+      </div>
+      <div class="eco-arrow">↓ pasa a</div>
+      <div class="eco-row">
+        <div class="eco-icon">📘</div>
+        <div class="eco-content">
+          <div class="eco-name">Meta Ads</div>
+          <div class="eco-role">Volver a impactar a quienes te vieron</div>
+        </div>
+      </div>
+      <div class="eco-arrow">↓ pasa a</div>
+      <div class="eco-row">
+        <div class="eco-icon">🔍</div>
+        <div class="eco-content">
+          <div class="eco-name">Google</div>
+          <div class="eco-role">Capturar a quien ya está buscando</div>
+        </div>
+      </div>
+      <div class="eco-arrow">↓ cierra en</div>
+      <div class="eco-row">
+        <div class="eco-icon">✅</div>
+        <div class="eco-content">
+          <div class="eco-name">Consulta · Venta</div>
+          <div class="eco-role">Mayor tasa de cierre</div>
+        </div>
+      </div>
+    </div>
+    <div class="eco-note">
+      Alguien que vio un video de Friotex en TikTok y después ve un anuncio en Meta <strong>ya sabe quién sos</strong> — pide el presupuesto con más confianza. TikTok no reemplaza lo que está andando: lo hace rendir más.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Pasos para arrancar</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>¿Hay videos del producto?</strong> Si no, planificar una sesión de filmación. Se necesitan al menos 4–6 videos para arrancar bien.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Crear la cuenta publicitaria en TikTok:</strong> configurar el píxel de seguimiento y vincularlo con el sitio de Friotex.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Lanzar Etapa 1:</strong> una campaña, 2 grupos de anuncios (intereses del rubro gastronómico/industrial + abierto). Dejar correr 21 días sin cambios.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Análisis a las 3–4 semanas:</strong> ver qué videos tuvieron más alcance, visualizaciones completas e interacción. Decidir qué escalar y qué pausar.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>Activar captación de consultas (mes 2):</strong> formulario de contacto dirigido a quienes ya vieron los videos. Propuesta: fácil de aceptar, sin compromiso inmediato.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-sig">Dilema <em>creative</em><span class="star">*</span></div>
+  <div class="footer-meta">Estrategia TikTok Ads · Friotex · 2025</div>
+</div>
+
+</body>
+</html>
