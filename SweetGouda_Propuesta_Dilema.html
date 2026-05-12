@@ -610,16 +610,52 @@ section + section { border-top: 1px solid var(--line); }
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .hero { padding: 60px 28px; min-height: 80vh; }
-  section { padding: 60px 28px; }
-  .channel-header { grid-template-columns: auto 1fr auto; gap: 12px; padding: 20px; }
+
+  .hero { padding: 52px 24px 64px; min-height: auto; }
+  .hero h1 { font-size: 48px; margin-bottom: 20px; }
+  .hero-sub { font-size: 16px; }
+  .hero-scroll { left: 24px; bottom: 24px; }
+
+  section { padding: 52px 24px; }
+
+  .section-title { font-size: 28px; }
+  .section-lead { font-size: 15px; margin-bottom: 32px; }
+
+  .diagnosis-grid { grid-template-columns: 1fr; }
+  .diagnosis-item { padding: 22px 20px 26px; }
+
+  .channel-header { grid-template-columns: auto 1fr auto; gap: 12px; padding: 18px 20px; }
   .channel-tag { display: none; }
+  .channel-icon { width: 36px; height: 36px; font-size: 16px; }
+  .channel-name { font-size: 18px; }
   .channel-body { padding: 0 20px 24px; }
-  .channel-cols { grid-template-columns: 1fr; }
-  .funnel-wrap { grid-template-columns: 1fr; }
-  .future-block { grid-template-columns: 1fr; padding: 28px; }
+  .channel-cols { grid-template-columns: 1fr; gap: 20px; }
+  .channel-note { font-size: 13px; }
+
   .invest-grid { grid-template-columns: 1fr; }
-  .closing { padding: 60px 28px; }
+  .invest-card { padding: 28px 24px; }
+  .invest-amount { font-size: 34px; }
+
+  .funnel-wrap { grid-template-columns: 1fr; gap: 20px; }
+  .funnel-stage { padding: 16px 18px; }
+  .funnel-channels-map { padding: 20px; }
+
+  .future-block { grid-template-columns: 1fr; padding: 28px 24px; gap: 28px; }
+  .future-block h3 { font-size: 24px; }
+
+  .why-grid { grid-template-columns: 1fr; }
+  .why-item { padding: 22px 20px; }
+
+  .closing { padding: 52px 24px; }
+  .closing h2 { font-size: 30px; }
+  .closing p { font-size: 15px; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 38px; }
+  .section-title { font-size: 24px; }
+  .invest-amount { font-size: 30px; }
+  .future-block h3 { font-size: 22px; }
 }
 </style>
 </head>
@@ -641,7 +677,7 @@ section + section { border-top: 1px solid var(--line); }
 <section class="hero">
   <div class="hero-kicker">Propuesta de marketing digital · Mayo 2025</div>
   <h1>Sweet Gouda<br>merece que<br><em>te encuentren.</em></h1>
-  <p class="hero-sub">Un producto artesanal, local y con identidad propia que hoy depende de que la gente ya te conozca. Eso se puede cambiar. Con pauta inteligente y sin quemar presupuesto.</p>
+  <p class="hero-sub">Una cafetería con pastelería artesanal en Tandil, con un producto estrella que viajó desde Holanda. Los stroopwaffles auténticos que ella trajo de vivir allá. Eso se puede comunicar mucho mejor de lo que se está haciendo hoy.</p>
   <div class="hero-scroll">Scrolleá para ver el plan</div>
 </section>
 
@@ -651,7 +687,7 @@ section + section { border-top: 1px solid var(--line); }
 <section id="estrategia">
   <div class="section-kicker">00 · El plan</div>
   <h2 class="section-title">Dos campañas. <em>Un solo foco.</em></h2>
-  <p class="section-lead">Arrancamos con Meta Ads porque es donde está la audiencia y donde el contenido visual de Sweet Gouda tiene más impacto. Sin dispersión de canales, sin presupuesto diluido.</p>
+  <p class="section-lead">Arrancamos con Meta Ads porque es donde está la audiencia y donde una cafetería con identidad visual fuerte como Sweet Gouda tiene más impacto. Los stroopwaffles holandeses son un producto con historia que se comunica perfecto en formato visual. Sin dispersión de canales, sin presupuesto diluido.</p>
 
   <div class="channels-stack">
 
@@ -667,15 +703,15 @@ section + section { border-top: 1px solid var(--line); }
         <div class="ch-arrow open">▾</div>
       </div>
       <div class="channel-body open">
-        <p>El objetivo de esta campaña no es vender directamente. es construir una audiencia que conozca Sweet Gouda, sienta afinidad con la marca y que cuando piense en panadería artesanal en Tandil, piense en vos. Eso se hace con contenido que entretenga y enseñe, no que interrumpa.</p>
+        <p>El objetivo de esta campaña no es vender directamente. es construir una audiencia que conozca Sweet Gouda, sienta afinidad con la marca y que cuando piense en cafetería artesanal en Tandil, piense en vos. Eso se hace con contenido que entretenga y enseñe, no que interrumpa.</p>
         <div class="channel-cols">
           <div>
             <div class="ch-col-title">Qué comunicamos</div>
             <ul class="ch-list">
-              <li><strong>El proceso artesanal</strong>. detrás de escena, texturas, maduración, la historia del producto</li>
-              <li><strong>Momentos de consumo</strong>. picadas, maridajes, tablas, recetas y usos del producto</li>
-              <li><strong>Origen y contexto</strong>. Tandil como garantía de calidad, el sello del producto local</li>
-              <li><strong>Contenido de temporada</strong>. días fríos, asados, fiestas, fechas especiales con el producto como protagonista</li>
+              <li><strong>La historia detrás del producto</strong>. ella vivió en Holanda, se trajo la receta, y la trajo a Tandil. Ese origen es diferenciación real</li>
+              <li><strong>Momentos de consumo</strong>. stroopwaffles con café, con té, en mesa dulce, como regalo. La cafetería como experiencia, no solo como producto</li>
+              <li><strong>Origen holandés</strong>. la autenticidad de la receta, los productos típicos de Holanda que no encontrás en ningún otro lado en la región</li>
+              <li><strong>Contenido de temporada</strong>. invierno y café con stroopwaffle, fechas especiales, regalos gourmet con identidad holandesa</li>
             </ul>
           </div>
           <div>
@@ -683,7 +719,7 @@ section + section { border-top: 1px solid var(--line); }
             <ul class="ch-list">
               <li>Campaña de <strong>Reconocimiento o Interacción</strong> en Meta. optimización por alcance y engagement</li>
               <li>Segmentación a <strong>Tandil + radio de influencia</strong>: intereses en gastronomía, productos gourmet, vinos, turismo</li>
-              <li>Formatos: <strong>Reels y carruseles</strong>. el video corto es lo que más alcance orgánico y paid genera hoy</li>
+              <li>Formatos: <strong>Reels y carruseles</strong>. el proceso de los stroopwaffles, la estética holandesa, la historia de cómo llegó la receta a Tandil</li>
               <li>Revisión de creativos cada 14 días. rotamos lo que funciona, pausamos lo que no</li>
             </ul>
           </div>
@@ -711,10 +747,10 @@ section + section { border-top: 1px solid var(--line); }
           <div>
             <div class="ch-col-title">Qué comunicamos</div>
             <ul class="ch-list">
-              <li><strong>Urgencia y presencia local</strong>. "Estamos en Tandil, vení a probar"</li>
-              <li><strong>Producto del día / semana</strong>. rotación de variedades para dar motivo de visita</li>
+              <li><strong>Presencia local</strong>. "Estamos en Tandil, vení a probar los stroopwaffles"</li>
+              <li><strong>Producto del día / semana</strong>. stroopwaffle del día, pastelería holandesa, cafés especiales. Rotación para dar motivo de visita</li>
               <li><strong>Horarios y ubicación</strong>. fricción cero entre ver el anuncio e ir al local</li>
-              <li><strong>Propuestas puntuales</strong>. promos de temporada, pack picada, combo regalo</li>
+              <li><strong>Propuestas puntuales</strong>. promos de temporada, pack regalo con productos holandeses, combo café + stroopwaffle</li>
             </ul>
           </div>
           <div>
@@ -790,14 +826,14 @@ section + section { border-top: 1px solid var(--line); }
         <div>
           <div class="fs-label">Top of funnel</div>
           <div class="fs-action">Descubrimiento</div>
-          <div class="fs-desc">Alguien en Tandil o turista en la ciudad ve por primera vez un Reel de Sweet Gouda. el proceso de producción, la masa, el horno, el producto de cerca. No sabe todavía que va a comprar. Empieza a conocerte.</div>
+          <div class="fs-desc">Alguien en Tandil o turista en la ciudad ve por primera vez un Reel de Sweet Gouda. Los stroopwaffles haciéndose, la estética holandesa, la historia de la receta traída desde Holanda. No sabe todavía que va a ir. Empieza a conocerte.</div>
         </div>
       </div>
       <div class="funnel-stage fs-mid">
         <div>
           <div class="fs-label">Middle of funnel</div>
           <div class="fs-action">Interés y consideración</div>
-          <div class="fs-desc">Sigue apareciendo en su feed. Ve más contenido. Empieza a sentir que Sweet Gouda es el lugar donde comprar panadería artesanal en Tandil. El engagement sube, la marca ocupa espacio mental.</div>
+          <div class="fs-desc">Sigue apareciendo en su feed. Ve más contenido. Empieza a sentir que Sweet Gouda es el lugar donde tomar un café diferente en Tandil. El engagement sube, la marca ocupa espacio mental.</div>
         </div>
       </div>
       <div class="funnel-stage fs-bot">
@@ -845,7 +881,7 @@ section + section { border-top: 1px solid var(--line); }
   <div class="future-block">
     <div>
       <h3>Landing page + Google Ads + <em>Maps.</em></h3>
-      <p>Hoy, si alguien busca "panadería artesanal Tandil" o "pan artesanal Tandil" en Google, Sweet Gouda no aparece de manera controlada. Eso es tráfico caliente que se está yendo a la competencia. La solución: una landing dedicada, una campaña de búsqueda en Google Ads y el perfil de Google Business optimizado para aparecer en Maps con fotos, horarios y reseñas.</p>
+      <p>Hoy, si alguien busca "cafetería Tandil", "stroopwaffles Tandil" o "pastelería artesanal Tandil" en Google, Sweet Gouda no aparece de manera controlada. Eso es demanda activa que se está perdiendo. La solución: una landing dedicada, una campaña de búsqueda en Google Ads y el perfil de Google Business optimizado para aparecer en Maps con fotos del local, horarios y reseñas.</p>
     </div>
     <div class="future-pillars">
       <div class="future-pillar">
