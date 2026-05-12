@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MGN × Dilema Creative — Propuesta Mercado Ads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E2A47;
+  --ink-soft: #1B3A5C;
+  --green: #4FA27E;
+  --green-deep: #2F7D5E;
+  --cream: #F4EFE6;
+  --paper: #FAF6EE;
+  --paper-2: #EFE8D9;
+  --black: #14161A;
+  --ash: #6B6257;
+  --line: #D9CFBC;
+  --star: #5BB4D6;
+  --ml-yellow: #FFE600;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: var(--paper);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+}
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+}
+.nav-logo em { font-style: italic; color: var(--green); }
+.nav-logo sup { color: var(--star); font-size: 12px; }
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--green); }
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  color: var(--cream);
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(48px, 7.5vw, 96px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  max-width: 860px;
+  margin-bottom: 32px;
+  color: var(--cream);
+}
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(244,239,230,0.65);
+  max-width: 560px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.25);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-scroll::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: rgba(244,239,230,0.2);
+}
+
+/* SECTIONS */
+section { padding: 80px 64px; }
+section + section { border-top: 1px solid var(--line); }
+
+.section-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+.section-title em { font-style: italic; color: var(--green); }
+.section-lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ash);
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+/* SECUENCIA */
+.sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.seq-item {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 28px;
+  align-items: start;
+  position: relative;
+}
+.seq-item.active {
+  background: var(--paper);
+  border-left: 3px solid var(--green);
+}
+.seq-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--line);
+}
+.seq-item.active .seq-num { color: var(--green); }
+.seq-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+.seq-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.seq-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ash);
+}
+.seq-tag {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  color: var(--ash);
+}
+.seq-tag.now {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+/* SERVICIO - lo que incluye */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.service-card {
+  background: var(--paper);
+  padding: 28px 26px 32px;
+}
+.service-card.highlight {
+  background: var(--ink);
+}
+.service-icon {
+  font-size: 22px;
+  margin-bottom: 14px;
+  display: block;
+}
+.service-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.service-card.highlight .service-title { color: var(--cream); }
+.service-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.service-items li {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+.service-card.highlight .service-items li { color: rgba(244,239,230,0.7); }
+
+/* PUBLICACIONES - detalle */
+.pub-block {
+  background: var(--ink);
+  border-radius: 8px;
+  padding: 40px 48px;
+  color: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.pub-block h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.pub-block h3 em { font-style: italic; color: var(--green); }
+.pub-block p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(244,239,230,0.65);
+}
+.pub-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pub-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.pub-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.pub-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(244,239,230,0.7);
+}
+.pub-text strong { color: var(--cream); }
+
+/* INVESTMENT */
+.invest-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.invest-card {
+  background: var(--paper);
+  padding: 36px;
+}
+.invest-card.highlight {
+  background: var(--ink);
+}
+.invest-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.invest-amount {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 44px;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.invest-card.highlight .invest-amount { color: var(--cream); }
+.invest-sub {
+  font-size: 13px;
+  color: var(--ash);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.invest-card.highlight .invest-sub { color: rgba(244,239,230,0.55); }
+.invest-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.invest-items li {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+.invest-card.highlight .invest-items li { color: rgba(244,239,230,0.7); }
+
+.package-banner {
+  background: var(--green);
+  border-radius: 6px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.package-banner-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  color: #fff;
+  line-height: 1.2;
+}
+.package-banner-text span {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 3px;
+  letter-spacing: 0;
+}
+.package-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+}
+.package-price small {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  display: block;
+  text-align: right;
+  margin-top: 2px;
+}
+
+.invest-note {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ash);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--star);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.invest-note strong { color: var(--ink); }
+
+/* FUNNEL */
+.funnel-stages { display: flex; flex-direction: column; gap: 3px; margin-bottom: 24px; }
+.funnel-stage {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 20px 24px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.funnel-stage::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 5px 0 0 5px;
+}
+.fs-top::before { background: var(--star); }
+.fs-mid::before { background: var(--green); }
+.fs-bot::before { background: var(--ink); }
+.fs-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  padding-top: 3px;
+}
+.fs-action {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+.fs-desc {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.55;
+}
+
+/* WHY */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.why-item {
+  background: var(--paper);
+  padding: 28px 24px;
+}
+.why-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.why-item h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.why-item p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ash);
+}
+
+/* CLOSING */
+.closing {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 80px 64px;
+  border-top: none;
+}
+.closing-inner { max-width: 680px; }
+.closing h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 50px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.closing h2 em { font-style: italic; color: var(--green); }
+.closing p {
+  font-size: 17px;
+  color: rgba(244,239,230,0.65);
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+.closing-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.closing-contact span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: rgba(244,239,230,0.5);
+  letter-spacing: 0.04em;
+}
+.closing-contact a { color: var(--green); text-decoration: none; }
+.closing-lema {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.18);
+  margin-top: 56px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 52px 24px 64px; min-height: auto; }
+  .hero h1 { font-size: 44px; }
+  .hero-sub { font-size: 16px; }
+  .hero-scroll { left: 24px; bottom: 24px; }
+  section { padding: 52px 24px; }
+  .section-title { font-size: 26px; }
+  .section-lead { font-size: 15px; margin-bottom: 32px; }
+  .seq-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 20px; }
+  .seq-num { font-size: 36px; }
+  .seq-tag { position: static; display: inline-block; margin-bottom: 8px; }
+  .service-grid { grid-template-columns: 1fr; }
+  .pub-block { grid-template-columns: 1fr; padding: 28px 24px; gap: 24px; }
+  .invest-wrap { grid-template-columns: 1fr; }
+  .invest-card { padding: 28px 24px; }
+  .invest-amount { font-size: 36px; }
+  .package-banner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
+  .funnel-stage { grid-template-columns: 1fr; gap: 6px; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .closing { padding: 52px 24px; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 36px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .package-price { font-size: 26px; }
+}
+
+/* VALOR ORIGINAL */
+.valor-original {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px 28px;
+  margin-bottom: 10px;
+}
+.vo-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.vo-price {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ash);
+  text-decoration: line-through;
+  text-decoration-color: var(--line);
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dilema <em>Creative</em><sup>*</sup></div>
+  <ul class="nav-links">
+    <li><a href="#secuencia">Secuencia</a></li>
+    <li><a href="#servicio">El servicio</a></li>
+    <li><a href="#inversion">Inversión</a></li>
+    <li><a href="#nosotros">Por qué Dilema</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kicker">Propuesta Mercado Ads · Mayo 2025</div>
+  <h1>MGN en Mercado Libre.<br><em>De cero a tienda</em><br>posicionada.</h1>
+  <p class="hero-sub">Multitecstore tiene la cuenta. Tiene los productos. Lo que falta es la estructura, las publicaciones y la pauta correcta para que los toners dejen de estar en el catálogo y empiecen a vender.</p>
+  <div class="hero-scroll">Scrolleá para ver el plan</div>
+</section>
+
+<!-- SECUENCIA -->
+<section id="secuencia">
+  <div class="section-kicker">00 · Cómo arrancamos</div>
+  <h2 class="section-title">Primero la base.<br><em>Después la pauta.</em></h2>
+  <p class="section-lead">En Mercado Libre no alcanza con poner plata. Si la publicación es mala, el algoritmo no la muestra, el comprador no confía y el anuncio gasta sin convertir. La secuencia correcta es esta.</p>
+
+  <div class="sequence">
+    <div class="seq-item active">
+      <div class="seq-num">01</div>
+      <div>
+        <div class="seq-tag">Fase actual</div>
+        <div class="seq-title">Armado de publicaciones y tienda</div>
+        <div class="seq-desc">Creamos las publicaciones de toners desde cero con títulos optimizados que incluyen todas las referencias compatibles, fichas técnicas completas, fotos en norma y descripciones orientadas al comprador. Configuramos Mercado Shops con la identidad visual de MGN, categorías bien estructuradas y todo el catálogo organizado. Esta fase define el techo de lo que se puede lograr con pauta después.</div>
+      </div>
+      <div class="seq-tag now">Arrancamos acá</div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-num">02</div>
+      <div>
+        <div class="seq-label">Fase 2</div>
+        <div class="seq-title">Tracción orgánica y validación</div>
+        <div class="seq-desc">Con las publicaciones activas, el algoritmo de ML empieza a indexarlas y generar impresiones orgánicas. Monitoreamos qué productos tienen mejores tasas de clic y conversión, respondemos preguntas para construir reputación y ajustamos títulos y precios según el comportamiento real. Esta etapa genera el historial de ventas que el sistema necesita para que la pauta funcione bien.</div>
+      </div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-num">03</div>
+      <div>
+        <div class="seq-label">Fase 3</div>
+        <div class="seq-title">Activación de Mercado Ads</div>
+        <div class="seq-desc">Cuando los productos del 80/20 tienen historial de ventas orgánicas, activamos Product Ads. Arrancamos con los que ya prueban conversión y escalamos presupuesto de forma controlada. Sumamos Display Ads para retargeting de usuarios que vieron el producto pero no compraron. En fechas clave como Hot Sale y Cyber Monday, subimos presupuesto con anticipación para que el algoritmo esté calibrado.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL SERVICIO -->
+<section id="servicio">
+  <div class="section-kicker">01 · Lo que incluye el servicio</div>
+  <h2 class="section-title">Todo. <em>Sin excepción.</em></h2>
+  <p class="section-lead">MGN se encarga de las consultas y el despacho. Nosotros nos encargamos de todo lo demás dentro del ecosistema de Mercado Libre.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="service-icon">🏪</span>
+      <div class="service-title">Mercado Shops</div>
+      <ul class="service-items">
+        <li>Configuración completa de la tienda oficial</li>
+        <li>Diseño del banner y header con identidad de MGN</li>
+        <li>Estructura de categorías y catálogo</li>
+        <li>Optimización del perfil de vendedor</li>
+        <li>Verificación de métricas de reputación</li>
+      </ul>
+    </div>
+    <div class="service-card highlight">
+      <span class="service-icon">📄</span>
+      <div class="service-title">Publicaciones</div>
+      <ul class="service-items">
+        <li>Creación de publicaciones nuevas desde cero</li>
+        <li>Títulos con keywords de alta intención de búsqueda</li>
+        <li>Fichas técnicas con todas las referencias compatibles</li>
+        <li>Descripciones orientadas al comprador, no al producto</li>
+        <li>Optimización de fotos según normas de ML</li>
+        <li>Precios competitivos dentro de la categoría</li>
+        <li>Optimización continua según performance</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📢</span>
+      <div class="service-title">Mercado Ads</div>
+      <ul class="service-items">
+        <li>Estrategia de campañas por etapa del funnel</li>
+        <li>Configuración de Product Ads por producto</li>
+        <li>Gestión de ROAS objetivo por campaña</li>
+        <li>Display Ads para retargeting de no-convertidos</li>
+        <li>Estrategia para fechas especiales (Hot Sale, Cyber)</li>
+        <li>Optimización semanal de campañas activas</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📊</span>
+      <div class="service-title">Reporte mensual</div>
+      <ul class="service-items">
+        <li>Métricas clave: ROAS, CTR, CVR, ventas directas e indirectas</li>
+        <li>Performance por producto y por campaña</li>
+        <li>Comparativa mes a mes</li>
+        <li>Análisis de qué funcionó y por qué</li>
+        <li>Próximos pasos y ajustes planificados</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔍</span>
+      <div class="service-title">SEO de marketplace</div>
+      <ul class="service-items">
+        <li>Investigación de keywords por categoría de producto</li>
+        <li>Análisis de competencia dentro del marketplace</li>
+        <li>Monitoreo del ranking orgánico de publicaciones</li>
+        <li>Ajuste de títulos y fichas según algoritmo de ML</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚙️</span>
+      <div class="service-title">Gestión continua</div>
+      <ul class="service-items">
+        <li>Revisión semanal de performance</li>
+        <li>Ajustes de precio según competencia</li>
+        <li>Monitoreo de reputación del vendedor</li>
+        <li>Comunicación directa sin intermediarios</li>
+        <li>Recomendaciones de nuevos productos a sumar</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pub-block">
+    <div>
+      <h3>Por qué las publicaciones<br><em>son el trabajo más importante.</em></h3>
+      <p>En ML, quien busca "toner 105A compatible HP" ya sabe lo que quiere. La pregunta es si tu publicación aparece primero y si genera confianza suficiente para que compre. Un título mal armado o una ficha técnica incompleta te saca de la subasta antes de que empiece. Ese trabajo de base es lo que hace que la pauta funcione o no.</p>
+    </div>
+    <div class="pub-items">
+      <div class="pub-item">
+        <div class="pub-dot"></div>
+        <div class="pub-text"><strong>Título con referencias múltiples:</strong> un toner puede ser compatible con 8 modelos de impresoras. Si no están todos en el título, perdés esas búsquedas.</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-dot"></div>
+        <div class="pub-text"><strong>Ficha técnica completa:</strong> ML premia las publicaciones con atributos completos en el ranking orgánico. Sin ficha, el Ad Score baja y el CPC sube.</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-dot"></div>
+        <div class="pub-text"><strong>Descripción que responde preguntas:</strong> compatibilidad, rendimiento de páginas, garantía. El comprador que no encuentra la info que busca no compra.</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-dot"></div>
+        <div class="pub-text"><strong>Precio competitivo:</strong> ML penaliza publicaciones con precios fuera de rango. No hay que ser el más barato, hay que estar dentro del rango esperado para la categoría.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section id="funnel">
+  <div class="section-kicker">02 · Cómo funciona adentro de ML</div>
+  <h2 class="section-title">El comprador de toners<br><em>ya tiene intención.</em></h2>
+  <p class="section-lead">Mercado Libre no es como Meta. No hay que interrumpir a nadie. El usuario ya está buscando activamente lo que MGN vende. La estrategia es estar en el lugar correcto en cada etapa de esa búsqueda.</p>
+
+  <div class="funnel-stages">
+    <div class="funnel-stage fs-top">
+      <div class="fs-tag">ToF</div>
+      <div>
+        <div class="fs-action">Display Ads — Fase 3</div>
+        <div class="fs-desc">Usuarios que compraron toners o insumos de impresión en ML pero no conocen Multitecstore. Display los impacta con la marca antes de que inicien la próxima búsqueda. También sirve para retargeting de quienes vieron una publicación pero no compraron.</div>
+      </div>
+    </div>
+    <div class="funnel-stage fs-mid">
+      <div class="fs-tag">MoF</div>
+      <div>
+        <div class="fs-action">Búsqueda genérica — SEO orgánico</div>
+        <div class="fs-desc">"Toner alternativo HP" o "toner compatible impresora laser". El usuario está evaluando opciones. Acá gana el vendedor con mejor reputación, mejor precio relativo y publicación más completa. Nuestro trabajo de publicaciones y SEO de marketplace opera acá.</div>
+      </div>
+    </div>
+    <div class="funnel-stage fs-bot">
+      <div class="fs-tag">BoF</div>
+      <div>
+        <div class="fs-action">Búsqueda específica — Product Ads</div>
+        <div class="fs-desc">"Toner 105A compatible HP Laser 107W". Intención de compra alta, búsqueda exacta por referencia. Product Ads posiciona la publicación de MGN en los primeros resultados. El comprador que llega acá ya decidió comprar, solo elige al vendedor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVERSIÓN -->
+<section id="inversion">
+  <div class="section-kicker">03 · Inversión</div>
+  <h2 class="section-title">El precio del servicio.<br><em>Y el beneficio del paquete.</em></h2>
+  <p class="section-lead">Mercado Ads se suma a Meta Ads como un servicio independiente. Tomados juntos, tiene un precio especial que reconoce la relación ya construida.</p>
+
+  <div class="valor-original">
+    <span class="vo-label">Valor original Mercado Ads</span>
+    <span class="vo-price">USD 300 / mes</span>
+  </div>
+
+  <div class="package-banner">
+    <div class="package-banner-text">
+      Paquete Meta Ads + Mercado Ads
+      <span>Precio especial por contratar ambos servicios con Dilema</span>
+    </div>
+    <div class="package-price">
+      USD 550 / mes
+      <small>USD 300 Meta + USD 250 Mercado Ads</small>
+    </div>
+  </div>
+
+  <div class="invest-wrap">
+    <div class="invest-card highlight">
+      <div class="invest-label">Mercado Ads · Precio paquete</div>
+      <div class="invest-amount">USD 250</div>
+      <div class="invest-sub">USD 50 de descuento por contratar junto a Meta Ads.</div>
+      <ul class="invest-items">
+        <li>Armado completo de Mercado Shops</li>
+        <li>Creación de publicaciones nuevas</li>
+        <li>Optimización de publicaciones existentes</li>
+        <li>SEO de marketplace continuo</li>
+        <li>Gestión de Product Ads y Display Ads</li>
+        <li>Estrategia para fechas especiales</li>
+        <li>Optimización semanal de campañas</li>
+        <li>Reporte mensual con análisis completo</li>
+        <li>Comunicación directa sin intermediarios</li>
+      </ul>
+    </div>
+    <div class="invest-card">
+      <div class="invest-label">Inversión en pauta · Mercado Ads</div>
+      <div class="invest-amount">A definir</div>
+      <div class="invest-sub">Va directo a Mercado Ads. Nosotros no lo tocamos.</div>
+      <ul class="invest-items">
+        <li>Presupuesto 100% en pauta, sin comisión nuestra</li>
+        <li>Fase 1 y 2 son orgánicas: sin inversión en pauta</li>
+        <li>Pauta se activa cuando hay historial de ventas</li>
+        <li>Arrancamos conservadores y escalamos según ROAS</li>
+        <li>Control total: vos manejás el gasto desde tu cuenta</li>
+        <li>Recomendación de presupuesto en base a la categoría</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="invest-note">
+    <strong>Importante:</strong> Las fases 1 y 2 son 100% orgánicas. No se invierte en pauta hasta que las publicaciones tengan historial de ventas y el algoritmo tenga datos para optimizar. Eso protege el presupuesto y maximiza el ROAS cuando sí se activa.
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
