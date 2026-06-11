@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taxi Transfers Aeropuertos · Propuesta Dilema Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E2A47;
+    --ink-soft: #1B3A5C;
+    --sage: #4FA27E;
+    --sage-deep: #2F7D5E;
+    --cream: #F4EFE6;
+    --paper: #FAF6EE;
+    --paper-2: #EFE8D9;
+    --black: #14161A;
+    --ash: #6B6257;
+    --line: #D9CFBC;
+    --good: #2F7D5E;
+    --bad: #B23A2B;
+    --star: #5BB4D6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 56px 64px 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 48px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    max-width: 1000px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+    font-weight: 400;
+  }
+  .hero h1 .star {
+    color: var(--star);
+    font-style: normal;
+    font-size: 0.5em;
+    vertical-align: super;
+    margin-left: -0.05em;
+  }
+  .hero .sub {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ash);
+    max-width: 720px;
+    margin-top: 24px;
+    line-height: 1.35;
+  }
+  .hero-foot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding-top: 32px;
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-foot .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 6px;
+  }
+  .hero-foot .v {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  /* ============ SECCIONES ============ */
+  section.slab {
+    padding: 80px 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  section.slab.dark {
+    background: var(--ink);
+    color: var(--cream);
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+  section.slab.cream { background: var(--cream); }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid currentColor;
+  }
+  .sec-head .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    opacity: 0.55;
+  }
+  .sec-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+  .sec-head h2 em { font-style: italic; color: var(--sage); }
+  section.dark .sec-head h2 em { color: var(--sage); }
+
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    line-height: 1.32;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    max-width: 760px;
+    margin-bottom: 32px;
+  }
+
+  /* ============ RESUMEN ============ */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .sum-card {
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 36px 32px;
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+  .sum-card.featured {
+    border-color: var(--sage);
+    background: rgba(79,162,126,0.08);
+  }
+  .sum-card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sum-card .tag .badge {
+    background: var(--sage);
+    color: var(--ink);
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+  .sum-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .sum-card h3 em { font-style: italic; color: var(--sage); }
+  .sum-card .price {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .sum-card .price small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    display: block;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .sum-card .desc {
+    font-size: 14.5px;
+    color: rgba(244,239,230,0.78);
+    line-height: 1.55;
+  }
+  .sum-card .meta {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ash);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ============ DETALLE ============ */
+  .detail-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .det {
+    padding: 36px 32px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .det.featured {
+    border-color: var(--sage);
+    background: #F1F6EE;
+  }
+  .det .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .det .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin-bottom: 8px;
+  }
+  .det h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .det h3 em { font-style: italic; color: var(--sage-deep); }
+  .det .price {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .det .price small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    display: block;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .det .intro {
+    font-size: 14.5px;
+    color: var(--ash);
+    line-height: 1.55;
+  }
+  .det .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 12px;
+  }
+  .det ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .det li {
+    padding: 11px 0 11px 26px;
+    border-bottom: 1px dashed var(--line);
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink);
+    position: relative;
+  }
+  .det li:last-child { border-bottom: 0; }
+  .det li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 14px;
+    height: 1px;
+    background: var(--sage-deep);
+  }
+  .det li b { color: var(--ink); font-weight: 600; }
+
+  .det .timeline {
+    background: rgba(14,42,71,0.04);
+    padding: 16px 18px;
+    border-left: 3px solid var(--ink);
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .det.featured .timeline {
+    background: rgba(47,125,94,0.08);
+    border-left-color: var(--sage-deep);
+  }
+  .det .timeline b {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  /* ============ ENTREGABLES / CIERRE ============ */
+  .closing {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: end;
+  }
+  .closing .pull {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .closing .pull em { font-style: italic; color: var(--sage); }
+  .closing .pull .star { color: var(--star); }
+  .closing .side {
+    border: 1px solid var(--line);
+    padding: 28px;
+    background: var(--paper);
+  }
+  .closing .side h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 16px;
+  }
+  .closing .side p {
+    font-size: 14.5px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .closing .side b { color: var(--ink); font-weight: 600; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 56px 64px;
+  }
+  footer .wrap {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  footer .sig {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+  footer .sig em { font-style: italic; color: var(--sage); font-weight: 400; }
+  footer .sig .star { color: var(--star); }
+  footer .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    line-height: 1.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero, section.slab, footer { padding: 48px 24px; }
+    .hero-foot { grid-template-columns: 1fr 1fr; }
+    .summary-grid, .detail-pair, .closing, footer .wrap { grid-template-columns: 1fr; }
+    footer .sig { font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="meta">
+      <span>Propuesta · Taxi Transfers Aeropuertos</span>
+      <span>Junio 2026 · V1.0</span>
+    </div>
+
+    <h1>Configurar las <em>conversiones</em><br>antes de gastar un peso más<span class="star">*</span></h1>
+    <p class="sub">Auditar el sitio nuevo, dejar el tageo limpio en Google Ads y medir lo que importa: viajes pedidos, no clicks sueltos.</p>
+
+    <div class="hero-foot">
+      <div><div class="k">Cliente</div><div class="v">Taxi Transfers<br>Aeropuertos</div></div>
+      <div><div class="k">Sitio</div><div class="v">taxitransfers<br>aeropuertos.com</div></div>
+      <div><div class="k">Plataforma</div><div class="v">Google Ads</div></div>
+      <div><div class="k">Fecha</div><div class="v">Junio 2026<br>Propuesta vigente 15 días</div></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 01 RESUMEN ============ -->
+  <section class="slab dark">
+    <div class="sec-head">
+      <span class="num">01 / RESUMEN</span>
+      <h2>Dos opciones, <em>una sola lógica</em>.</h2>
+    </div>
+
+    <p class="lede" style="color:rgba(244,239,230,0.85)">Lo mismo que pediste, en dos profundidades. La primera resuelve el tageo y entrega. La segunda hace eso y se queda un mes adentro para que las campañas ya activas trabajen mejor con la data nueva.</p>
+
+    <div class="summary-grid">
+      <div class="sum-card">
+        <div class="tag"><span>Opción 01</span></div>
+        <h3>Conversiones <em>y tageo</em></h3>
+        <div class="price">$165.000<small>ARS · pago único</small></div>
+        <p class="desc">Auditoría del sitio nuevo, configuración de eventos de conversión en Google Ads, instalación de tags, testeo end to end y entrega documentada.</p>
+        <div class="meta"><span>1 día de trabajo</span><span>Entrega 48 h</span></div>
+      </div>
+
+      <div class="sum-card featured">
+        <div class="tag"><span>Opción 02</span><span class="badge">Recomendada</span></div>
+        <h3>Servicio completo<br>+ <em>portal de clientes</em></h3>
+        <div class="price">$300.000<small>ARS · mes</small></div>
+        <p class="desc">Todo lo de la Opción 01 más palabras negativas, optimización de campañas, monitoreo activo durante el mes y acceso al portal de clientes para ver la performance al día.</p>
+        <div class="meta"><span>1 mes de trabajo</span><span>Soporte incluido</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ 02 DETALLE ============ -->
+  <section class="slab cream">
+    <div class="sec-head">
+      <span class="num">02 / DETALLE</span>
+      <h2>Qué incluye <em>cada opción</em>.</h2>
+    </div>
+
+    <div class="detail-pair">
+
+      <!-- OPCIÓN 01 -->
+      <div class="det">
+        <div class="head">
+          <div>
+            <div class="kicker">Opción 01 · 1 día</div>
+            <h3>Conversiones <em>y tageo</em></h3>
+          </div>
+          <div class="price">$165.000<small>ARS · único</small></div>
+        </div>
+        <p class="intro">Una jornada de trabajo enfocada en dejar la medición funcionando. Salimos con el sitio midiendo bien y un informe que cualquier persona puede leer.</p>
+
+        <div>
+          <div class="label">Qué hacemos</div>
+          <ul>
+            <li><b>Auditoría técnica del sitio</b> nuevo: estructura, formularios, botones de WhatsApp, llamadas y reservas.</li>
+            <li><b>Configuración de conversiones</b> en Google Ads: eventos de reserva, click a WhatsApp, llamada telefónica y envío de formulario.</li>
+            <li><b>Instalación de tags</b>: Google Tag Manager y Google Ads tag, todo desde un mismo lugar.</li>
+            <li><b>Testeo end to end</b>: simulamos cada conversión y validamos que llegue a Google Ads.</li>
+            <li><b>Documento de entrega</b>: qué se midió, dónde, cómo verificarlo.</li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <b>Plazo</b>
+          Entrega en 48 horas desde el OK. Pago único contra entrega del informe.
+        </div>
+      </div>
+
+      <!-- OPCIÓN 02 -->
+      <div class="det featured">
+        <div class="head">
+          <div>
+            <div class="kicker">Opción 02 · 1 mes</div>
+            <h3>Servicio completo<br>+ <em>portal de clientes</em></h3>
+          </div>
+          <div class="price">$300.000<small>ARS · mes</small></div>
+        </div>
+        <p class="intro">Mismo trabajo de auditoría y tageo, pero después nos quedamos el mes adentro de la cuenta optimizando con la data nueva. Para que el cambio se note en los resultados, no solo en el tablero.</p>
+
+        <div>
+          <div class="label">Incluye todo lo anterior, más</div>
+          <ul>
+            <li><b>Palabras negativas</b> en Google Ads: limpieza de tráfico que no convierte y bloqueo de búsquedas irrelevantes.</li>
+            <li><b>Optimización de campañas</b> activas con la data nueva: pujas, audiencias, ubicaciones, horarios.</li>
+            <li><b>Monitoreo durante el mes</b>: chequeo semanal de que las conversiones siguen midiendo y las campañas siguen sanas.</li>
+            <li><b>Soporte directo</b> por WhatsApp para dudas, cambios o ajustes urgentes.</li>
+            <li><b>Acceso al portal de clientes</b> de Dilema: métricas de Google Ads al día, sin esperar reporte.</li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <b>Plazo</b>
+          Mes completo desde el OK. Renovable mes a mes, sin permanencia.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============ 03 CIERRE ============ -->
+  <section class="slab">
+    <div class="closing">
+      <p class="pull">Sin tageo, las campañas <em>vuelan a ciegas</em>. Empezamos por ahí.<span class="star">*</span></p>
+      <div class="side">
+        <h4>Próximo paso</h4>
+        <p><b>1.</b> Elegir opción.</p>
+        <p><b>2.</b> Accesos a Google Ads y al sitio.</p>
+        <p><b>3.</b> Arrancamos.</p>
+        <p style="margin-top:18px;color:var(--ash);font-size:13px">Cualquier duda sobre alcance, plazos o pago, respondemos por el mismo canal.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="sig">Dilema <em>creative</em><span class="star">*</span></div>
+      <div class="meta">
+        Propuesta<br>
+        Taxi Transfers Aeropuertos<br>
+        Junio 2026
+      </div>
+      <div class="meta">
+        equipo@dilemacreative.ar<br>
+        dilemacreative.ar<br>
+        Argentina
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
