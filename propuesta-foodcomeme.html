@@ -1,0 +1,1297 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foodcomeme × Dilema Creative · Propuesta de Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E2A47;
+  --ink-soft: #1B3A5C;
+  --green: #4FA27E;
+  --green-deep: #2F7D5E;
+  --cream: #F4EFE6;
+  --paper: #FAF6EE;
+  --paper-2: #EFE8D9;
+  --black: #14161A;
+  --ash: #6B6257;
+  --line: #D9CFBC;
+  --star: #5BB4D6;
+  --hero-bg: #0a1a10;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: var(--paper);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+  gap: 16px;
+}
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.nav-logo em { font-style: italic; color: var(--green); }
+.nav-logo sup { color: var(--star); font-size: 12px; }
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--green); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--green-deep); }
+
+/* HERO */
+.hero {
+  background: var(--hero-bg);
+  color: var(--cream);
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(79,162,126,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(42px, 7vw, 86px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  max-width: 880px;
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(244,239,230,0.7);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--green);
+  display: block;
+}
+.hero-stat-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: rgba(244,239,230,0.5);
+  text-transform: uppercase;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-scroll::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: rgba(244,239,230,0.2);
+}
+
+/* SECTIONS */
+section { padding: 80px 64px; }
+section + section { border-top: 1px solid var(--line); }
+
+.section-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+.section-title em { font-style: italic; color: var(--green); }
+.section-lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ash);
+  max-width: 660px;
+  margin-bottom: 48px;
+}
+
+/* DIAGNOSIS */
+.diagnosis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.diagnosis-item {
+  background: var(--paper);
+  padding: 28px 28px 32px;
+}
+.diagnosis-item .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.diagnosis-item h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.diagnosis-item p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ash);
+}
+
+/* CHANNELS */
+.channels-stack { display: flex; flex-direction: column; gap: 2px; }
+
+.channel-block {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.channel-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 32px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.channel-header:hover { background: var(--paper-2); }
+.channel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.ch-google { background: #e8f0fe; }
+.ch-meta { background: #e7f0fd; }
+.ch-cm { background: #fdecd4; }
+.ch-content { background: #e8f5ee; }
+.channel-title-wrap {}
+.channel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+.channel-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.channel-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  color: var(--ash);
+  white-space: nowrap;
+}
+.channel-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.channel-price.placeholder {
+  color: var(--ash);
+  font-style: italic;
+  border-style: dashed;
+}
+.channel-body {
+  padding: 0 32px 32px;
+  display: none;
+}
+.channel-body.open { display: block; }
+.channel-body p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 24px;
+}
+.channel-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.ch-col-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 10px;
+}
+.ch-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.ch-list li {
+  font-size: 13px;
+  color: #444;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.ch-list li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  top: -2px;
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+}
+.kw-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.kw-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.kw-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid rgba(217,207,188,0.4);
+  color: #333;
+  vertical-align: top;
+}
+.kw-table tr:last-child td { border-bottom: none; }
+.kw-table .intent {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.intent-high { background: #d1fae5; color: #065f46; }
+.intent-med { background: #fef3c7; color: #92400e; }
+.intent-aware { background: #e0e7ff; color: #3730a3; }
+.channel-note {
+  display: flex;
+  gap: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--green);
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--ash);
+  margin-top: 20px;
+}
+.channel-note strong { color: var(--ink); }
+
+.placeholder-block {
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  padding: 22px 26px;
+  text-align: center;
+}
+.placeholder-block .ph-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.placeholder-block .ph-text {
+  font-size: 14px;
+  color: var(--ash);
+  font-style: italic;
+}
+
+/* FUNNEL */
+.funnel-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.funnel-stages { display: flex; flex-direction: column; gap: 3px; }
+.funnel-stage {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 18px 20px;
+  position: relative;
+}
+.funnel-stage::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 5px 0 0 5px;
+}
+.fs-top::before { background: var(--star); }
+.fs-mid::before { background: var(--green); }
+.fs-bot::before { background: var(--ink); }
+.fs-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 4px;
+}
+.fs-action {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.fs-desc {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+.funnel-channels-map {
+  background: var(--ink);
+  border-radius: 6px;
+  padding: 28px;
+  color: var(--cream);
+}
+.fcm-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+.fcm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(244,239,230,0.08);
+}
+.fcm-row:last-child { border-bottom: none; }
+.fcm-stage-name {
+  font-size: 12px;
+  color: rgba(244,239,230,0.5);
+  min-width: 60px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.fcm-channels {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.fcm-ch {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(244,239,230,0.15);
+  color: rgba(244,239,230,0.75);
+  white-space: nowrap;
+}
+.fcm-ch.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+/* INVERSION */
+.invest-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.invest-wrap {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.invest-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ash);
+  padding: 18px 28px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--line);
+}
+.invest-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+}
+.invest-row:last-child { border-bottom: none; }
+.invest-row.subtotal {
+  background: var(--paper);
+  margin-top: auto;
+}
+.invest-row.subtotal .invest-price {
+  font-size: 20px;
+  color: var(--ink);
+}
+.invest-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.invest-desc {
+  font-size: 13px;
+  color: var(--ash);
+  margin-top: 4px;
+}
+.invest-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* PACKAGE CARD */
+.package-card {
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 8px;
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.package-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 100% 0%, rgba(79,162,126,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.package-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 14px;
+  position: relative;
+}
+.package-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  margin-bottom: 12px;
+  line-height: 1.1;
+  position: relative;
+}
+.package-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(244,239,230,0.65);
+  margin-bottom: 22px;
+  position: relative;
+}
+.package-list {
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.package-list li {
+  font-size: 13px;
+  color: rgba(244,239,230,0.75);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.package-list li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+.package-price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(244,239,230,0.12);
+  margin-top: auto;
+  position: relative;
+  flex-wrap: wrap;
+}
+.package-original {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: rgba(244,239,230,0.4);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.package-final {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--green);
+  letter-spacing: -0.01em;
+}
+.package-save {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(79,162,126,0.15);
+  border: 1px solid rgba(79,162,126,0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* WHY DILEMA */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.why-item {
+  background: var(--paper);
+  padding: 28px;
+}
+.why-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.why-item h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.why-item p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ash);
+}
+
+/* CLOSING */
+.closing {
+  background: var(--hero-bg);
+  color: var(--cream);
+  padding: 100px 64px;
+  text-align: center;
+  border-top: none;
+}
+.closing h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.closing h2 em { font-style: italic; color: var(--green); }
+.closing p {
+  font-size: 17px;
+  color: rgba(244,239,230,0.6);
+  margin-bottom: 40px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+.closing-btn {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 40px;
+  border-radius: 4px;
+  transition: background .2s;
+}
+.closing-btn:hover { background: var(--green-deep); }
+.closing-contact {
+  margin-top: 40px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(244,239,230,0.3);
+}
+.closing-contact a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+
+  .hero { padding: 60px 24px 60px; min-height: 80vh; }
+  .hero-scroll { left: 24px; }
+  .hero-stats { gap: 28px; }
+
+  section { padding: 56px 24px; }
+
+  .channel-header { padding: 20px 20px; grid-template-columns: auto 1fr auto; gap: 14px; }
+  .channel-tag { display: none; }
+  .channel-body { padding: 0 20px 24px; }
+  .channel-cols { grid-template-columns: 1fr; }
+
+  .funnel-wrap { grid-template-columns: 1fr; }
+
+  .closing { padding: 72px 24px; }
+
+  .kw-table { font-size: 12px; }
+  .kw-table th, .kw-table td { padding: 8px 8px; }
+
+  .invest-grid { grid-template-columns: 1fr; gap: 20px; }
+  .invest-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 22px; }
+  .invest-header { padding: 14px 22px; }
+  .invest-price { font-size: 16px; }
+  .invest-row.subtotal .invest-price { font-size: 18px; }
+  .package-card { padding: 26px 24px 24px; }
+  .package-title { font-size: 26px; }
+  .package-final { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 36px; }
+  .hero-sub { font-size: 16px; }
+  .section-title { font-size: 28px; }
+  .diagnosis-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .channel-price { font-size: 11px; padding: 4px 8px; }
+}
+
+/* TOGGLE ARROW */
+.ch-arrow {
+  font-size: 18px;
+  color: var(--green);
+  transition: transform .25s;
+  font-family: monospace;
+}
+.ch-arrow.open { transform: rotate(180deg); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dilema<em>creative</em><sup>*</sup></div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#canales">Canales</a></li>
+    <li><a href="#funnel">Funnel</a></li>
+    <li><a href="#inversion">Inversión</a></li>
+    <li><a href="#nosotros">Por qué Dilema</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Avanzar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-kicker">Propuesta de Marketing · Foodcomeme × Dilema Creative · 2026</div>
+  <h1>De boca en boca a un <em>sistema de eventos.</em></h1>
+  <p class="hero-sub">Foodcomeme tiene los trailers, la operación y la cocina. Lo que falta es un canal que ponga la marca frente a quien decide los eventos: countries, empresas y organizadores de family days.</p>
+  <div class="hero-stats">
+    <div>
+      <span class="hero-stat-val">2</span>
+      <span class="hero-stat-label">Trailers operativos</span>
+    </div>
+    <div>
+      <span class="hero-stat-val">B2B</span>
+      <span class="hero-stat-label">Foco mayorista</span>
+    </div>
+    <div>
+      <span class="hero-stat-val">360°</span>
+      <span class="hero-stat-label">Estrategia integral</span>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll para explorar</div>
+</section>
+
+<!-- DIAGNOSTICO -->
+<section id="diagnostico">
+  <div class="section-kicker">01 · Dónde estamos parados</div>
+  <h2 class="section-title">Foodcomeme tiene todo, excepto un <em>sistema para ser encontrado.</em></h2>
+  <p class="section-lead">Antes de hablar de canales, esto es lo que vemos hoy. Y lo que venimos a resolver.</p>
+
+  <div class="diagnosis-grid">
+    <div class="diagnosis-item">
+      <div class="num">01</div>
+      <h3>La demanda llega por contactos, no por sistema</h3>
+      <p>Los eventos que cierran hoy vienen del boca a boca y de relaciones existentes. El próximo family day o evento corporativo no va a llegar por casualidad: necesita un canal que lo busque.</p>
+    </div>
+    <div class="diagnosis-item">
+      <div class="num">02</div>
+      <h3>Sin presencia donde se buscan proveedores</h3>
+      <p>Cuando un administrador de country, una empresa o una productora googlea "catering para eventos", "food truck para fiesta privada" o "alquiler de trailer gastronómico", Foodcomeme no aparece. Esa ventana hoy la usan otros.</p>
+    </div>
+    <div class="diagnosis-item">
+      <div class="num">03</div>
+      <h3>Instagram funciona, pero no convierte</h3>
+      <p>La cuenta tiene contenido y movimiento. Lo que no tiene es un sistema que convierta seguidores en consultas reales: presupuestos pedidos, formularios completados, WhatsApp activos.</p>
+    </div>
+    <div class="diagnosis-item">
+      <div class="num">04</div>
+      <h3>No hay funnel de la consulta al cierre</h3>
+      <p>Entre el primer contacto y el evento confirmado hay un proceso manual que depende de seguimiento personal. Sin retargeting, sin nutrición, sin presencia constante en la cabeza del decisor.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CANALES -->
+<section id="canales">
+  <div class="section-kicker">02 · El plan</div>
+  <h2 class="section-title">Cuatro canales. Una <em>misma máquina de leads.</em></h2>
+  <p class="section-lead">Cada canal cumple un rol distinto. Ninguno es opcional o decorativo: cada uno tapa un agujero concreto en cómo Foodcomeme llega y convierte a sus clientes B2B.</p>
+
+  <div class="channels-stack">
+
+    <!-- GOOGLE ADS -->
+    <div class="channel-block">
+      <div class="channel-header" onclick="toggleChannel(this)">
+        <div class="channel-icon ch-google">🔍</div>
+        <div class="channel-title-wrap">
+          <div class="channel-label">Capturar demanda existente</div>
+          <div class="channel-name">Google Ads</div>
+        </div>
+        <div class="channel-tag">Search · Paid</div>
+      </div>
+      <div class="channel-body open">
+        <p>Hay gente buscando ahora mismo lo que Foodcomeme ofrece: catering para eventos masivos, food trucks para fiestas privadas, comida para family days corporativos. Google Search pone la marca delante de esa persona en el momento exacto en que tiene la intención, antes de que llegue a un competidor. Es el tráfico de mayor calidad que se puede comprar: gente que ya tiene el problema y está buscando solución.</p>
+        <div class="channel-cols">
+          <div>
+            <div class="ch-col-title">Qué vamos a correr</div>
+            <ul class="ch-list">
+              <li>Campañas de búsqueda con keywords de alta intención por vertical: countries, eventos corporativos, fiestas privadas, productoras</li>
+              <li>Ad groups separados por tipo de servicio: trailer para evento puntual, alquiler fijo en country, catering masivo</li>
+              <li>Landing pages alineadas a cada búsqueda, no tráfico al perfil de Instagram ni a una página genérica</li>
+              <li>Retargeting a quienes visitaron la web pero no completaron el formulario</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ch-col-title">A quién apuntamos</div>
+            <ul class="ch-list">
+              <li>Administradores de country clubs sin servicio gastronómico fijo</li>
+              <li>Empresas que organizan family days y eventos internos</li>
+              <li>Productoras de eventos masivos</li>
+              <li>Particulares con fiestas privadas grandes (cumpleaños, casamientos, despedidas)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ch-col-title" style="margin-bottom:12px;">Estrategia de keywords</div>
+        <table class="kw-table">
+          <thead>
+            <tr>
+              <th>Cluster de keyword</th>
+              <th>Intención</th>
+              <th>Por qué importa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>catering para eventos corporativos</td>
+              <td><span class="intent intent-high">Alta</span></td>
+              <td>Búsqueda directa de empresa evaluando proveedores</td>
+            </tr>
+            <tr>
+              <td>food truck para fiesta privada</td>
+              <td><span class="intent intent-high">Alta</span></td>
+              <td>Match directo con el formato Foodcomeme</td>
+            </tr>
+            <tr>
+              <td>catering family day</td>
+              <td><span class="intent intent-high">Alta</span></td>
+              <td>Pain-based, RRHH buscando proveedor para evento programado</td>
+            </tr>
+            <tr>
+              <td>alquiler food truck country</td>
+              <td><span class="intent intent-high">Alta</span></td>
+              <td>Match con el enfoque mayorista de trailer fijo</td>
+            </tr>
+            <tr>
+              <td>comida para eventos masivos</td>
+              <td><span class="intent intent-med">Media</span></td>
+              <td>Búsqueda más amplia pero calificada por volumen</td>
+            </tr>
+            <tr>
+              <td>servicio gastronómico para country</td>
+              <td><span class="intent intent-high">Alta</span></td>
+              <td>Administradores buscando solución a un agujero operativo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- META ADS -->
+    <div class="channel-block">
+      <div class="channel-header" onclick="toggleChannel(this)">
+        <div class="channel-icon ch-meta">📱</div>
+        <div class="channel-title-wrap">
+          <div class="channel-label">Generar demanda y captar leads</div>
+          <div class="channel-name">Meta Ads</div>
+        </div>
+        <div class="channel-tag">Facebook · Instagram · Paid</div>
+      </div>
+      <div class="channel-body open">
+        <p>La mayoría de los decisores (un administrador de country, una líder de RRHH, un dueño de empresa) no se levantan buscando un food truck. La necesidad está ahí, pero no es urgente. Meta interrumpe el scroll con el mensaje justo: trailers operando en eventos reales, comida en cámara lenta, capacidad de servicio. Y los Lead Ads bajan toda la fricción: sin pestaña nueva, sin formulario, solo nombre y WhatsApp de alguien que levantó la mano.</p>
+        <div class="channel-cols">
+          <div>
+            <div class="ch-col-title">Estructura de campañas</div>
+            <ul class="ch-list">
+              <li>Awareness: videos mostrando los trailers en acción en eventos reales, foco en escala y profesionalismo</li>
+              <li>Consideración: carrusel con tipos de servicio (country fijo, evento puntual, family day corporativo) y casos</li>
+              <li>Conversión: Lead Ads con formulario instantáneo para pedir presupuesto</li>
+              <li>Retargeting: audiencias tibias que vieron el contenido o entraron a la web</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ch-col-title">Segmentación</div>
+            <ul class="ch-list">
+              <li>Cargos: Administrador, RRHH, Eventos, Marketing, Dueño/CEO en empresas medianas y grandes</li>
+              <li>Intereses: country clubs, eventos corporativos, family day, gastronomía premium</li>
+              <li>Geografía: AMBA con foco en zona norte y oeste (corredor de countries)</li>
+              <li>Lookalikes a partir de la base de clientes y consultas existentes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="channel-note">
+          <strong>Nota sobre creativos:</strong>&nbsp; el activo más fuerte de Foodcomeme es visual: los trailers, la comida en plato, los eventos en escala. Los mejores anuncios de Meta no van a ser placas diseñadas, van a ser video real de los trailers operando con copy directo encima. Definimos brief por etapa de embudo.
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY MANAGEMENT -->
+    <div class="channel-block">
+      <div class="channel-header" onclick="toggleChannel(this)">
+        <div class="channel-icon ch-cm">💬</div>
+        <div class="channel-title-wrap">
+          <div class="channel-label">Construir presencia orgánica</div>
+          <div class="channel-name">Community Management</div>
+        </div>
+        <div class="channel-tag">Orgánico · Instagram</div>
+      </div>
+      <div class="channel-body open">
+        <p>Instagram es la primera parada de cualquier potencial cliente B2B antes de pedir presupuesto: revisa el perfil, mira los últimos posts, evalúa si el proveedor está vivo y si tiene casos reales. Un perfil cuidado y activo es el mejor cierre orgánico que se puede tener, y multiplica el rendimiento de cada peso invertido en pauta.</p>
+        <div class="channel-cols">
+          <div>
+            <div class="ch-col-title">Qué incluye</div>
+            <ul class="ch-list">
+              <li>Calendario mensual de posteo planificado con 4 semanas de anticipación</li>
+              <li>Posteo y publicación en feed, reels y stories</li>
+              <li>Copywriting alineado a la voz de marca</li>
+              <li>Respuesta a comentarios y mensajes directos</li>
+              <li>Reporte mensual de crecimiento, engagement y leads orgánicos</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ch-col-title">Pilares de contenido</div>
+            <ul class="ch-list">
+              <li>Eventos reales: armado, servicio, escala</li>
+              <li>Producto en plato: comida en cámara lenta, presentación</li>
+              <li>Detrás de escena: equipo, logística, cocina</li>
+              <li>Casos B2B: testimonios y referencias de clientes</li>
+              <li>Diferenciales: trailers propios, capacidad, profesionalismo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCCION DE CONTENIDO -->
+    <div class="channel-block">
+      <div class="channel-header" onclick="toggleChannel(this)">
+        <div class="channel-icon ch-content">🎥</div>
+        <div class="channel-title-wrap">
+          <div class="channel-label">Producir el material para pautar</div>
+          <div class="channel-name">Producción de Contenido</div>
+        </div>
+        <div class="channel-tag">Opcional · Audiovisual</div>
+      </div>
+      <div class="channel-body open">
+        <p>Las campañas pagas necesitan creativos que funcionen en feed: video de trailers en acción, comida bien filmada, planos generales de los eventos. Esta producción la puede hacer el equipo Foodcomeme directamente (es más económico y suele dar contenido más auténtico) o la podemos producir nosotros con un equipo asignado.</p>
+        <div class="channel-cols">
+          <div>
+            <div class="ch-col-title">Opción A: in-house</div>
+            <ul class="ch-list">
+              <li>Foodcomeme produce el material en eventos reales</li>
+              <li>Dilema entrega briefs y guiones por pieza</li>
+              <li>Dilema hace la edición y adaptación a formato de anuncio</li>
+              <li>Más económico y con contenido más natural</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ch-col-title">Opción B: producción Dilema</div>
+            <ul class="ch-list">
+              <li>Equipo de producción audiovisual en eventos</li>
+              <li>Fotografía profesional de producto y servicio</li>
+              <li>Pack mensual de reels editados listos para pautar</li>
+              <li>Mayor control de calidad y consistencia visual</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section id="funnel">
+  <div class="section-kicker">03 · Cómo se conecta</div>
+  <h2 class="section-title">Del primer scroll a la <em>consulta cerrada.</em></h2>
+  <p class="section-lead">Cada canal tiene un rol en el recorrido. Nada corre aislado: todos alimentan el mismo objetivo final.</p>
+
+  <div class="funnel-wrap">
+    <div class="funnel-stages">
+      <div class="funnel-stage fs-top">
+        <div>
+          <div class="fs-label">Top of funnel</div>
+          <div class="fs-action">Descubrimiento</div>
+          <div class="fs-desc">Administradores, RRHH y dueños de empresas ven Foodcomeme por primera vez: una búsqueda en Google por catering para evento, un video en Meta mostrando un trailer operando, un reel en el feed de Instagram.</div>
+        </div>
+      </div>
+      <div class="funnel-stage fs-mid">
+        <div>
+          <div class="fs-label">Middle of funnel</div>
+          <div class="fs-action">Consideración</div>
+          <div class="fs-desc">El retargeting persigue a las audiencias tibias con casos reales: video del último family day, testimonios, capacidad operativa. El feed orgánico refuerza la marca cada vez que el decisor vuelve a chequear.</div>
+        </div>
+      </div>
+      <div class="funnel-stage fs-bot">
+        <div>
+          <div class="fs-label">Bottom of funnel</div>
+          <div class="fs-action">Consulta enviada</div>
+          <div class="fs-desc">Un formulario instantáneo de Meta, una landing de Google o un WhatsApp directo desde Instagram convierten el interés en una consulta concreta. El objetivo siempre es el mismo: una conversación con un decisor de evento.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-channels-map">
+      <div class="fcm-title">Rol del canal por etapa</div>
+      <div class="fcm-row">
+        <span class="fcm-stage-name">ToF</span>
+        <div class="fcm-channels">
+          <span class="fcm-ch active">Meta Ads</span>
+          <span class="fcm-ch active">IG Orgánico</span>
+        </div>
+      </div>
+      <div class="fcm-row">
+        <span class="fcm-stage-name">MoF</span>
+        <div class="fcm-channels">
+          <span class="fcm-ch active">Meta Retargeting</span>
+          <span class="fcm-ch active">IG Orgánico</span>
+          <span class="fcm-ch active">Producción Visual</span>
+        </div>
+      </div>
+      <div class="fcm-row">
+        <span class="fcm-stage-name">BoF</span>
+        <div class="fcm-channels">
+          <span class="fcm-ch active">Google Search</span>
+          <span class="fcm-ch active">Meta Lead Ads</span>
+          <span class="fcm-ch active">WhatsApp Directo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVERSION -->
+<section id="inversion">
+  <div class="section-kicker">04 · Inversión</div>
+  <h2 class="section-title">Estructura clara y <em>modular.</em></h2>
+  <p class="section-lead">Cada servicio se contrata por separado o como paquete promocional con un ahorro mensual.</p>
+
+  <div class="invest-grid">
+    <div class="invest-wrap">
+      <div class="invest-header">Servicios individuales</div>
+      <div class="invest-row">
+        <div>
+          <div class="invest-name">Google Ads</div>
+          <div class="invest-desc">Gestión de cuenta, campañas, optimización y reporte</div>
+        </div>
+        <div class="invest-price">USD 300 / mes</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <div class="invest-name">Meta Ads</div>
+          <div class="invest-desc">Gestión de cuenta, campañas, optimización y reporte</div>
+        </div>
+        <div class="invest-price">USD 300 / mes</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <div class="invest-name">Community Management</div>
+          <div class="invest-desc">Calendario, posteo, stories, respuesta a comentarios y DMs</div>
+        </div>
+        <div class="invest-price">USD 150 / mes</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <div class="invest-name">Producción de Contenido</div>
+          <div class="invest-desc">Producción, edición y entrega de material audiovisual mensual</div>
+        </div>
+        <div class="invest-price">USD 500 / mes</div>
+      </div>
+      <div class="invest-row subtotal">
+        <div>
+          <div class="invest-name">Suma de servicios sueltos</div>
+          <div class="invest-desc">Sin descuento, contratados por separado</div>
+        </div>
+        <div class="invest-price">USD 1.250 / mes</div>
+      </div>
+    </div>
+
+    <div class="package-card">
+      <div class="package-badge">Paquete promocional</div>
+      <div class="package-title">Todo incluido</div>
+      <div class="package-desc">Google Ads + Meta Ads + Community Management + Producción de Contenido en un único fee mensual.</div>
+      <ul class="package-list">
+        <li>Gestión completa de adquisición paga en Google y Meta</li>
+        <li>Community Management mensual</li>
+        <li>Producción y edición de contenido audiovisual</li>
+        <li>Reporte unificado de performance</li>
+      </ul>
+      <div class="package-price-row">
+        <div>
+          <div class="package-original">USD 1.250 / mes</div>
+          <div class="package-final">USD 1.090 / mes</div>
+        </div>
+        <div class="package-save">Ahorro USD 160 / mes</div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:13px; color:var(--ash); margin-top:28px; max-width:680px;">
+    La inversión publicitaria (presupuesto que se invierte directamente en cada plataforma) se define por separado y queda 100% en la cuenta de Foodcomeme. Recomendamos un piso de USD 300 por canal por mes para tener volumen real de datos.
+  </p>
+</section>
+
+<!-- POR QUE DILEMA -->
+<section id="nosotros">
+  <div class="section-kicker">05 · Por qué Dilema</div>
+  <h2 class="section-title">No trabajamos para cualquiera.<br><em>Ese es el punto.</em></h2>
+  <p class="section-lead">Somos una agencia argentina enfocada en performance para B2B e industrial. No hacemos ecommerce ni consumo masivo: trabajamos donde un cliente vale mucho y el ciclo de venta necesita estrategia real.</p>
+
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h3>B2B es nuestro foco</h3>
+      <p>Sabemos cómo hablarle a una administradora de country, a un líder de RRHH o a una productora de eventos. En este mundo, una placa linda no alcanza: lo que cierra es la prueba.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h3>Resultados en números, no en humo</h3>
+      <p>CPL, consultas generadas, eventos confirmados. Cada reporte muestra qué cambió, qué optimizamos y qué viene. Sin métricas de adorno ni teatro de dashboards.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h3>Decimos lo que vemos</h3>
+      <p>Si un canal no funciona, lo decimos. Si vemos una oportunidad fuera de lo contratado, la traemos. Ese es el compromiso desde el día uno.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h3>Pocos clientes, atención real</h3>
+      <p>No escalamos apilando 50 cuentas. Cada cliente trabaja con un equipo que conoce su producto, su competencia y sus clientes por nombre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing" id="contacto">
+  <div class="section-kicker" style="color: var(--green); margin-bottom: 20px;">06 · Próximo paso</div>
+  <h2>Hagamos que los <em>eventos lleguen solos.</em></h2>
+  <p>Esta propuesta está armada en base al producto de Foodcomeme, al enfoque mayorista y a la oportunidad que vemos en el mercado B2B argentino. Está lista para ejecutar cuando ustedes lo estén.</p>
+  <a href="mailto:equipo@dilemacreative.ar" class="closing-btn">Avanzar con la propuesta</a>
+  <div class="closing-contact" style="font-size:14px; color: rgba(244,239,230,0.55);">
+    <a href="mailto:equipo@dilemacreative.ar" style="color: var(--green);">equipo@dilemacreative.ar</a> &nbsp;·&nbsp;
+    <a href="https://www.instagram.com/dilema.creative" target="_blank">@dilema.creative</a> &nbsp;·&nbsp;
+    <a href="https://dilemacreative.ar" target="_blank">dilemacreative.ar</a>
+  </div>
+</section>
+
+<script>
+function toggleChannel(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.ch-arrow');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  if (arrow) arrow.classList.toggle('open', !isOpen);
+}
+</script>
+
+</body>
+</html>
